@@ -11,4 +11,4 @@ class Sighting {
   }
 }
 
-allSightings = []
+let allSightings = []

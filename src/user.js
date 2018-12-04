@@ -6,4 +6,4 @@ class User {
   }
 }
 
-allUsers = []
+let allUsers = []
