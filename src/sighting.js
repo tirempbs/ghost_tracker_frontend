@@ -12,3 +12,17 @@ class Sighting {
 }
 
 let allSightings = []
+
+function fetchSightings() {
+  return fetch('http://localhost:3000/api/v1/sightings')
+  .then(res => res.json())
+}
+
+function loadAllSightings() {
+  fetchSightings().then(sightings => {
+    sightings.forEach((sighting) => {
+      new Sighting(sighting)
+    })
+    console.log(`%cLoaded ${sightings.length} sightings`, 'color: green')
+  })
+}
