@@ -5,9 +5,13 @@ body {
   text-align: center;
 }
 
+header {
+  text-align: left;
+  background: black;
+  color: white;
+}
+
 main {
-  margin-left: 1%;
-  width: 98%;
   border: solid black 2px;
 }
 
