@@ -24,6 +24,13 @@ footer {
   background: black;
   color: white;
   padding: 1em;
+  text-align: center;
+}
+
+.footer-box {
+  width: 32%;
+  text-align: left;
+  padding-left: 1em;
 }
 
 .nyc-map {
