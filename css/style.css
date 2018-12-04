@@ -5,9 +5,13 @@ body {
   text-align: center;
 }
 
+header {
+  text-align: left;
+  background: black;
+  color: white;
+}
+
 main {
-  margin-left: 1%;
-  width: 98%;
   border: solid black 2px;
 }
 
@@ -24,6 +28,13 @@ footer {
   background: black;
   color: white;
   padding: 1em;
+  text-align: center;
+}
+
+.footer-box {
+  width: 32%;
+  text-align: left;
+  padding-left: 1em;
 }
 
 .nyc-map {
@@ -42,3 +53,22 @@ footer {
   margin-left: 3%;
   margin-bottom: 2em;
 }
+
+/* Animations */
+/* To add an animation just add the relevant class to the class list */
+
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.fade-in-short {animation: fadein 1s;}
+.fade-in-medium {animation: fadein 2s;}
+.fade-in-long {animation: fadein 3s;}
+
+@keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+.fade-out-short {animation: fadeout 1s;}
+.fade-out-medium {animation: fadeout 2s;}
+.fade-out-long {animation: fadeout 3s;}
