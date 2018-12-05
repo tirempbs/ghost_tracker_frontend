@@ -30,6 +30,7 @@ h1 {
 }
 
 .information-area {
+  background: white;
   display: inline-block;
   float: right;
   margin-right: 2%

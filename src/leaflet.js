@@ -1,5 +1,5 @@
 let nycMap
-const allMarkers = []
+let allMarkers = []
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //iterate through allSightings and create and render pins
   renderSightings = () => {
+    allMarkers = []
     allSightings.forEach( s => {
       let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)], {monsterId: s.monsterID, sightingId: s.id} ).addTo(nycMap);
 
@@ -97,8 +98,7 @@ function monsterFilter(event) {
 
 function filterButtonRenderHTML(monster) {
   return `
-  <button type="button" name="button" id="${monster.id}">${monster.name}</button>
-  `
+  <button type="button" name="button" id="${monster.id}">${monster.name}</button>`
 }
 
 //

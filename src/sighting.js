@@ -20,7 +20,7 @@ function fetchSightings() {
 
 function loadAllSightings() {
   allSightings = []
-  fetchSightings().then(sightings => {
+  return fetchSightings().then(sightings => {
     sightings.forEach((sighting) => {
       new Sighting(sighting)
     })
@@ -52,7 +52,7 @@ function createNewSighting() {
       if (res.id) {
         const nSighting = new Sighting(res)
         console.log(nSighting)
-        loadAllSightings()
+        loadAllSightings().then(() => {deleteMarkers()}).then(() => {renderSightings()})
       }
     })
   } else {
