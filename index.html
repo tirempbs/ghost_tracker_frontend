@@ -19,7 +19,7 @@
     <script src="src/leaflet.js"></script>
 
     <!-- Class Instances -->
-    <script src="src/user.js"></script>
+    <script src="src/monster.js"></script>
     <script src="src/sighting.js"></script>
     <script src="src/button_binder.js"></script>
     <script src="src/run.js"></script>
@@ -42,8 +42,8 @@
           <div style='width: 80%; margin-left: 10%;'>
             <form class="form no-display" id='create-form' data-lat='null' data-long='null'>
               <h3>Report a Sighting</h3> <p id='exit-create' class='exit'>X</p>
-              <label>User:</label>
-              <input type="text" name="user"><br>
+              <label>Monster:</label>
+              <input type="text" name="monster"><br>
               <label>Entity:</label>
               <input type="text" name="entity"><br>
               <label>Description:</label><br>
@@ -73,8 +73,8 @@
             <textarea rows='2' columns='30' name="description"></textarea><br>
             <label>Image URL:</label>
             <input type="text" name="image-url"><br>
-            <label>User:</label>
-            <input type="text" name="user"><br>
+            <label>Monster:</label>
+            <input type="text" name="monster"><br>
             <p>Coordinates:  <span id='edit-coords'> </span></p>
             <input type="submit" name="submit-edit" value="Submit">
           </form>

@@ -6,7 +6,7 @@ class Sighting {
     this.long = body.long
     this.image = body.image
     this.description = body.description
-    this.userID = body.user.id
+    this.monsterID = body.monster.id
     allSightings.push(this)
   }
 }

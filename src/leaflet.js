@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //iterate through allSightings and create and render pins
   renderSightings = () => {
     allSightings.forEach( s => {
-      let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)], {entityId: s.userID} ).addTo(nycMap);
+      let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)], {entityId: s.monsterID} ).addTo(nycMap);
 
       allMarkers.push(newS)
 
