@@ -1,7 +1,9 @@
+let nycMap
+
 document.addEventListener('DOMContentLoaded', () => {
 
   //initialize map, set coordinates and zoom
-  const nycMap = L.map('nyc-map').setView([40.743, -74], 13);
+  nycMap = L.map('nyc-map').setView([40.743, -74], 13);
 
   //add tile layer to map
   // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
