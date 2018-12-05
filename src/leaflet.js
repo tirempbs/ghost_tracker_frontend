@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("You clicked the map at " + event.latlng);
     //event.latlng.lat = latitude as integer
     //event.latlng.lng = longitude as integer
+
+    if (!document.getElementById('create-form').classList.contains('no-display')) {
+      document.getElementById('create-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
+    } else if (!document.getElementById('edit-form').classList.contains('no-display')) {
+      document.getElementById('edit-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
+    }
   }
 
   nycMap.on('click', onMapClick);
