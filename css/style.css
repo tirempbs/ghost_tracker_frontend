@@ -5,26 +5,28 @@ body {
   text-align: center;
 }
 
+/* Header Body */
 header {
   text-align: left;
   background: black;
   color: white;
 }
 
+/* Main Body */
+main {
+
+}
+
 h1 {
   color: white;
   background: black;
 }
-
-main {
-}
-
 .nyc-map {
   display: inline-block;
   float: left;
   width: 60%;
   margin-left: 3%;
-  height: 350px;
+  height: 400px;
   border: black solid 2px;
 }
 
@@ -33,20 +35,22 @@ main {
   float: left;
   width: 30%;
   margin-left: 3%;
-  height: 350px;
+  height: 400px;
   border: black solid 2px;
   margin-bottom: 2em;
 }
 
 .form {
   overflow: hidden;
+  height: 15em;
   text-align: left;
 }
 
 .form > textarea {
-  width: 40em;
+  width: 20em;
 }
 
+/* Footer Body */
 footer {
   width: 100%;
   height: 2em;
@@ -65,24 +69,23 @@ footer {
 }
 
 /* Animations */
-/* To add an animation just add the relevant class to the class list */
+/* To add an animation to an element just add the relevant class to its class list */
 
+/* fade-in */
 @keyframes fadein {
     from {opacity: 0;}
     to {opacity: 1;}
 }
-.fade-in-short {animation: fadein 1s;}
-.fade-in-medium {animation: fadein 2s;}
-.fade-in-long {animation: fadein 3s;}
+.fade-in {animation: fadein 1s;}
 
+/* fade-out */
 @keyframes fadeout {
     from {opacity: 1;}
     to {opacity: 0;}
 }
-.fade-out-short {animation: fadeout 1s;}
-.fade-out-medium {animation: fadeout 2s;}
-.fade-out-long {animation: fadeout 3s;}
+.fade-out {animation: fadeout 1s;}
 
+/* drop-in */
 @keyframes dropin {
   0% {display: none; height: 0;}
   50% {display: none; height: 0;}
@@ -90,6 +93,15 @@ footer {
 }
 .drop-in {animation: dropin 2s;}
 
-.display-none {
+/* drop-out */
+@keyframes dropout {
+  0% {display: inline-block;; height: 200px;}
+  50% {display: none; height: 0;}
+  100% {display: none; height: 0;}
+}
+.drop-out {animation: dropout 2s;}
+
+/* no-display */
+.no-display {
   display: none;
 }

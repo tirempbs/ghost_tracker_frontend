@@ -32,40 +32,44 @@
         <button id='open-create'>Report Sighting</button>
       </div>
 
-      <!-- This is the create form (display: none) -->
-      <div style='width: 80%; margin-left: 10%;'>
-        <form class="form display-none" id='create-form' data-lat='null' data-long='null'>
-          <h3>Report a Sighting</h3>
-          <label>Entity:</label>
-          <input type="text" name="entity" placeholder="entity name"><br>
-          <label>Description:</label><br>
-          <textarea rows='2' columns='30' name="description"></textarea><br>
-          <label>Image URL:</label>
-          <input type="text" name="image-url" placeholder="url"><br>
-          <label>User:</label>
-          <input type="text" name="user"><br>
-          <p>Please place a pin on the map where you saw the entity:</p>
-        </form>
-      </div>
-
-      <!-- This is the edit form (display: none) -->
-      <form class="form display-none" id='edit-form'>
-        <h3>Edit a Sighting (Possibly remove this h3)</h3>
-        <label>Entity:</label>
-        <input type="text" name="entity" placeholder="entity name"><br>
-        <label>Description:</label><br>
-        <textarea rows='2' columns='30' name="description"></textarea><br>
-        <label>Image URL:</label>
-        <input type="text" name="image-url" placeholder="url"><br>
-        <label>User:</label>
-        <input type="text" name="user"><br>
-        <p>Please place a pin on the map where you saw the entity:</p>
-      </form>
-
-      <!-- This is the basic view area users are first greeted with -->
       <div class='view-area'>
-        <div class="information-area">text or something will go here, like, i dunno, guess we should work on some functionality first lol</div>
+        <!-- This is the information display area -->
+        <div class="information-area">
+
+          <!-- This is the create form (display: none) -->
+          <div style='width: 80%; margin-left: 10%;'>
+            <form class="form drop-in" id='create-form' data-lat='null' data-long='null'>
+              <h3>Report a Sighting</h3>
+              <label>Entity:</label>
+              <input type="text" name="entity" placeholder="entity name"><br>
+              <label>Description:</label><br>
+              <textarea rows='2' columns='30' name="description"></textarea><br>
+              <label>Image URL:</label>
+              <input type="text" name="image-url" placeholder="url"><br>
+              <label>User:</label>
+              <input type="text" name="user"><br>
+              <p>Please place a pin on the map where you saw the entity ---> </p>
+            </form>
+          </div>
+
+          <!-- This is the edit form (display: none) -->
+          <form class="form no-display drop-in" id='edit-form'>
+            <h3>Edit a Sighting (Possibly remove this h3)</h3>
+            <label>Entity:</label>
+            <input type="text" name="entity" placeholder="entity name"><br>
+            <label>Description:</label><br>
+            <textarea rows='2' columns='30' name="description"></textarea><br>
+            <label>Image URL:</label>
+            <input type="text" name="image-url" placeholder="url"><br>
+            <label>User:</label>
+            <input type="text" name="user"><br>
+            <p>Please place a pin on the map where you saw the entity ---> </p>
+          </form>
+
+        </div>
+
         <div class="nyc-map" id="nyc-map"></div>
+
       </div>
 
     </main>
