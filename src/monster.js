@@ -19,5 +19,6 @@ function loadAllMonsters() {
       new Monster(monster)
     })
     console.log(`%cLoaded ${monsters.length} monsters`, 'color: orange')
+    createFilterButtons()
   })
 }
