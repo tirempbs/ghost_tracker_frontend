@@ -44,13 +44,18 @@ h1 {
 
 .form {
   overflow: hidden;
-  height: 16em;
+  height: 20em;
   text-align: left;
 }
 
 .form > textarea {
   width: 90%;
   height: 3em;
+}
+
+.exit {
+  cursor: pointer;
+  color: orange;
 }
 
 /* Footer Body */
@@ -92,13 +97,13 @@ footer {
 @keyframes dropin {
   0% {display: none; height: 0;}
   50% {display: none; height: 0;}
-  100% {display: inline-block; height: 16em;}
+  100% {display: inline-block; height: 20em;}
 }
 .drop-in {animation: dropin 3s;}
 
 /* drop-out */
 @keyframes dropout {
-  0% {display: inline-block; height: 16em;}
+  0% {display: inline-block; height: 20em;}
   50% {display: none; height: 0;}
   100% {display: none; height: 0;}
 }

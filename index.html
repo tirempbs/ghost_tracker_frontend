@@ -21,6 +21,7 @@
     <!-- Class Instances -->
     <script src="src/user.js"></script>
     <script src="src/sighting.js"></script>
+    <script src="src/button_binder.js"></script>
     <script src="src/run.js"></script>
 
   </head>
@@ -39,8 +40,8 @@
 
           <!-- This is the create form (display: none) -->
           <div style='width: 80%; margin-left: 10%;'>
-            <form class="form drop-in" id='create-form' data-lat='null' data-long='null'>
-              <h3>Report a Sighting</h3>
+            <form class="form no-display" id='create-form' data-lat='null' data-long='null'>
+              <h3>Report a Sighting</h3> <p id='exit-create' class='exit'>X</p>
               <label>User:</label>
               <input type="text" name="user"><br>
               <label>Entity:</label>
@@ -50,6 +51,7 @@
               <label>Upload Image:</label>
               <input type="text" name="image-url"><br>
               <p>Coordinates: <span id='create-coords'> </span></p>
+              <input type="submit" name="submit-create" value="Submit">
             </form>
           </div>
           <div id="filter-buttons">
@@ -73,7 +75,8 @@
             <input type="text" name="image-url"><br>
             <label>User:</label>
             <input type="text" name="user"><br>
-            <p>Please place a pin on the map where you saw the entity ---> </p>
+            <p>Coordinates:  <span id='edit-coords'> </span></p>
+            <input type="submit" name="submit-edit" value="Submit">
           </form>
 
         </div>
