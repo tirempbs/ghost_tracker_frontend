@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function createFilterButtons() {
   const filterButtonDiv = document.querySelector('#filter-buttons')
 
-  allmonsters.forEach((monster) => {
+  allMonsters.forEach((monster) => {
     const html = filterButtonRenderHTML(monster);
     filterButtonDiv.innerHTML += html
   })
