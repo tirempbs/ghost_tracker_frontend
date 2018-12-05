@@ -18,7 +18,7 @@
     crossorigin=""></script>
     <script src="src/leaflet.js"></script>
 
-    <!-- Classes -->
+    <!-- Class Instances -->
     <script src="src/user.js"></script>
     <script src="src/sighting.js"></script>
 
@@ -26,16 +26,57 @@
   <!-- Body -->
   <body>
 
-    <main class='fade-in-medium'>
+    <main class=''>
       <h1>Ghost Tracker NYC</h1>
-      <p>Like OMG ghosts and goblins and stuff LOL</p>
+      <p>Create and edit buttons will go here</p>
 
-      <div class="nyc-map" id="nyc-map"></div>
-      <div class="uncertain">text or something will go here, like, i dunno, guess we should work on some functionality first lol</div>
+      <!-- This is the create form (display: none) -->
+      <form class="form display-none" id='create-form'>
+        <h3>Edit a Sighting (Possibly remove this h3)</h3>
+        <label>Entity:</label>
+        <input type="text" name="entity" placeholder="entity name"><br>
+        <label>Description:</label><br>
+        <textarea rows='2' columns='30' name="description"></textarea><br>
+        <label>Image URL:</label>
+        <input type="text" name="image-url" placeholder="url"><br>
+        <label>User:</label>
+        <input type="text" name="user"><br>
+        <p>Please place a pin on the map where you saw the entity:</p>
+        <div>
+          <div class="nyc-map" id='nyc-map-edit'>
+            edit map will go here
+          </div>
+        </div>
+      </form>
+
+      <!-- This is the edit form (display: none) -->
+      <form class="form display-none" id='edit-form'>
+        <h3>Edit a Sighting (Possibly remove this h3)</h3>
+        <label>Entity:</label>
+        <input type="text" name="entity" placeholder="entity name"><br>
+        <label>Description:</label><br>
+        <textarea rows='2' columns='30' name="description"></textarea><br>
+        <label>Image URL:</label>
+        <input type="text" name="image-url" placeholder="url"><br>
+        <label>User:</label>
+        <input type="text" name="user"><br>
+        <p>Please place a pin on the map where you saw the entity:</p>
+        <div>
+          <div class="nyc-map" id='nyc-map-edit'>
+            edit map will go here
+          </div>
+        </div>
+      </form>
+
+      <!-- This is the basic view area users are first greeted with -->
+      <div class='view-area'>
+        <div class="nyc-map" id="nyc-map"></div>
+        <div class="uncertain">text or something will go here, like, i dunno, guess we should work on some functionality first lol</div>
+      </div>
 
     </main>
 
-    <footer class='fade-in-medium'>
+    <footer class=''>
       <div class="footer-box">
         ©Those three guys
       </div>

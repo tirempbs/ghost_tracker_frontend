@@ -53,6 +53,15 @@ footer {
   margin-bottom: 2em;
 }
 
+.form {
+  overflow: hidden;
+  text-align: left;
+}
+
+.form > textarea {
+  width: 40em;
+}
+
 /* Animations */
 /* To add an animation just add the relevant class to the class list */
 
@@ -71,3 +80,14 @@ footer {
 .fade-out-short {animation: fadeout 1s;}
 .fade-out-medium {animation: fadeout 2s;}
 .fade-out-long {animation: fadeout 3s;}
+
+@keyframes dropin {
+  0% {display: none; height: 0;}
+  50% {display: none; height: 0;}
+  100% {display: inline-block; height: 200px;}
+}
+.drop-in {animation: dropin 2s;}
+
+.display-none {
+  display: none;
+}
