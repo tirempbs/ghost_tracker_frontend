@@ -33,7 +33,7 @@ h1 {
   display: inline-block;
   float: right;
   min-width: 25%;
-  height: 400px;
+  height: 100%;
   border: black solid 2px;
 }
 
