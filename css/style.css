@@ -25,6 +25,7 @@ h1 {
   display: inline-block;
   float: left;
   width: 60%;
+  min-width: 300px;
   margin-left: 3%;
   height: 400px;
   border: black solid 2px;
@@ -34,6 +35,7 @@ h1 {
   display: inline-block;
   float: left;
   width: 30%;
+  min-width: 300px;
   margin-left: 3%;
   height: 400px;
   border: black solid 2px;
@@ -42,12 +44,13 @@ h1 {
 
 .form {
   overflow: hidden;
-  height: 15em;
+  height: 16em;
   text-align: left;
 }
 
 .form > textarea {
-  width: 20em;
+  width: 90%;
+  height: 3em;
 }
 
 /* Footer Body */
@@ -89,17 +92,17 @@ footer {
 @keyframes dropin {
   0% {display: none; height: 0;}
   50% {display: none; height: 0;}
-  100% {display: inline-block; height: 200px;}
+  100% {display: inline-block; height: 16em;}
 }
-.drop-in {animation: dropin 2s;}
+.drop-in {animation: dropin 3s;}
 
 /* drop-out */
 @keyframes dropout {
-  0% {display: inline-block;; height: 200px;}
+  0% {display: inline-block; height: 16em;}
   50% {display: none; height: 0;}
   100% {display: none; height: 0;}
 }
-.drop-out {animation: dropout 2s;}
+.drop-out {animation: dropout 3s;}
 
 /* no-display */
 .no-display {

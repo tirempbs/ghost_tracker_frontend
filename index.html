@@ -28,7 +28,7 @@
 
     <main class=''>
       <h1>Ghost Tracker NYC</h1>
-      <div style='text-align: right; width: 94%; margin-left: 3%;'>
+      <div style='text-align: right; width: 94%; margin-left: 3%; height: 1.5em;'>
         <button id='open-create'>Report Sighting</button>
       </div>
 
@@ -40,14 +40,14 @@
           <div style='width: 80%; margin-left: 10%;'>
             <form class="form drop-in" id='create-form' data-lat='null' data-long='null'>
               <h3>Report a Sighting</h3>
-              <label>Entity:</label>
-              <input type="text" name="entity" placeholder="entity name"><br>
-              <label>Description:</label><br>
-              <textarea rows='2' columns='30' name="description"></textarea><br>
-              <label>Image URL:</label>
-              <input type="text" name="image-url" placeholder="url"><br>
               <label>User:</label>
               <input type="text" name="user"><br>
+              <label>Entity:</label>
+              <input type="text" name="entity"><br>
+              <label>Description:</label><br>
+              <textarea rows='2' columns='30' name="description"></textarea><br><br>
+              <label>Upload Image:</label>
+              <input type="text" name="image-url"><br>
               <p>Please place a pin on the map where you saw the entity ---> </p>
             </form>
           </div>
@@ -56,11 +56,11 @@
           <form class="form no-display drop-in" id='edit-form'>
             <h3>Edit a Sighting (Possibly remove this h3)</h3>
             <label>Entity:</label>
-            <input type="text" name="entity" placeholder="entity name"><br>
+            <input type="text" name="entity"><br>
             <label>Description:</label><br>
             <textarea rows='2' columns='30' name="description"></textarea><br>
             <label>Image URL:</label>
-            <input type="text" name="image-url" placeholder="url"><br>
+            <input type="text" name="image-url"><br>
             <label>User:</label>
             <input type="text" name="user"><br>
             <p>Please place a pin on the map where you saw the entity ---> </p>
