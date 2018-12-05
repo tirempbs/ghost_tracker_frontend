@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //iterate through allSightings and create and render pins
   renderSightings = () => {
     allSightings.forEach( s => {
-      let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)], {monsterId: s.monsterID} ).addTo(nycMap);
+      let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)], {monsterId: s.monsterID, sightingId: s.id} ).addTo(nycMap);
 
       allMarkers.push(newS)
 
@@ -51,7 +51,9 @@ function createFilterButtons() {
   })
 
   filterButtonDiv.addEventListener('click', monsterFilter)
-}
+
+} //DOMContentLoaded
+
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -61,7 +63,14 @@ function capitalizeName(string) {
   return string.split(' ').map(word => capitalize(word)).join(' ')
 }
 
-//
+//FILTER FUNCTIONS
+
+function deleteMarkers() {
+    allMarkers.forEach((marker) => {
+      marker.remove();
+    })
+    console.log("DELETED ALL MARKERS");
+}
 
 function showAll() {
   deleteMarkers();
@@ -69,16 +78,6 @@ function showAll() {
     marker.addTo(nycMap);
   })
 }
-
-// const filterMonster = document.querySelector('#monster-filter')
-//   filterMonster.addEventListener('click', monsterFilterFn)
-
-function deleteMarkers() {
-    allMarkers.forEach((marker) => {
-      marker.remove();
-    })
-    console.log("DELETED ALL MARKERS");
-  }
 
 function monsterFilter(event) {
   deleteMarkers();
@@ -95,3 +94,5 @@ function filterButtonRenderHTML(monster) {
   <button type="button" name="button" id="${monster.id}">${monster.name}</button>
   `
 }
+
+//
