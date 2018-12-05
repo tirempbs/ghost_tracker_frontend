@@ -5,21 +5,55 @@ body {
   text-align: center;
 }
 
+/* Header Body */
 header {
   text-align: left;
   background: black;
   color: white;
 }
 
+/* Main Body */
 main {
-  border: solid black 2px;
+
 }
 
 h1 {
   color: white;
   background: black;
 }
+.nyc-map {
+  display: inline-block;
+  float: left;
+  width: 60%;
+  min-width: 300px;
+  margin-left: 3%;
+  height: 400px;
+  border: black solid 2px;
+}
 
+.information-area {
+  display: inline-block;
+  float: left;
+  width: 30%;
+  min-width: 300px;
+  margin-left: 3%;
+  height: 400px;
+  border: black solid 2px;
+  margin-bottom: 2em;
+}
+
+.form {
+  overflow: hidden;
+  height: 16em;
+  text-align: left;
+}
+
+.form > textarea {
+  width: 90%;
+  height: 3em;
+}
+
+/* Footer Body */
 footer {
   width: 100%;
   height: 2em;
@@ -37,57 +71,40 @@ footer {
   padding-left: 1em;
 }
 
-.nyc-map {
-  display: inline-block;
-  width: 80%;
-  height: 350px;
-  border: black solid 2px;
-  margin-bottom: 2em;
-}
-
-.uncertain {
-  display: inline-block;
-  width: 80%;
-  min-height: 200px;
-  border: black solid 2px;
-  margin-bottom: 2em;
-}
-
-.form {
-  overflow: hidden;
-  text-align: left;
-}
-
-.form > textarea {
-  width: 40em;
-}
-
 /* Animations */
-/* To add an animation just add the relevant class to the class list */
+/* To add an animation to an element just add the relevant class to its class list */
 
+/* fade-in */
 @keyframes fadein {
     from {opacity: 0;}
     to {opacity: 1;}
 }
-.fade-in-short {animation: fadein 1s;}
-.fade-in-medium {animation: fadein 2s;}
-.fade-in-long {animation: fadein 3s;}
+.fade-in {animation: fadein 1s;}
 
+/* fade-out */
 @keyframes fadeout {
     from {opacity: 1;}
     to {opacity: 0;}
 }
-.fade-out-short {animation: fadeout 1s;}
-.fade-out-medium {animation: fadeout 2s;}
-.fade-out-long {animation: fadeout 3s;}
+.fade-out {animation: fadeout 1s;}
 
+/* drop-in */
 @keyframes dropin {
   0% {display: none; height: 0;}
   50% {display: none; height: 0;}
-  100% {display: inline-block; height: 200px;}
+  100% {display: inline-block; height: 16em;}
 }
-.drop-in {animation: dropin 2s;}
+.drop-in {animation: dropin 3s;}
 
-.display-none {
+/* drop-out */
+@keyframes dropout {
+  0% {display: inline-block; height: 16em;}
+  50% {display: none; height: 0;}
+  100% {display: none; height: 0;}
+}
+.drop-out {animation: dropout 3s;}
+
+/* no-display */
+.no-display {
   display: none;
 }
