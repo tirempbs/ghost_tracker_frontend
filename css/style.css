@@ -11,13 +11,40 @@ header {
   color: white;
 }
 
-main {
-  border: solid black 2px;
-}
-
 h1 {
   color: white;
   background: black;
+}
+
+main {
+}
+
+.nyc-map {
+  display: inline-block;
+  float: left;
+  width: 60%;
+  margin-left: 3%;
+  height: 350px;
+  border: black solid 2px;
+}
+
+.information-area {
+  display: inline-block;
+  float: left;
+  width: 30%;
+  margin-left: 3%;
+  height: 350px;
+  border: black solid 2px;
+  margin-bottom: 2em;
+}
+
+.form {
+  overflow: hidden;
+  text-align: left;
+}
+
+.form > textarea {
+  width: 40em;
 }
 
 footer {
@@ -35,31 +62,6 @@ footer {
   width: 32%;
   text-align: left;
   padding-left: 1em;
-}
-
-.nyc-map {
-  display: inline-block;
-  width: 80%;
-  height: 350px;
-  border: black solid 2px;
-  margin-bottom: 2em;
-}
-
-.uncertain {
-  display: inline-block;
-  width: 80%;
-  min-height: 200px;
-  border: black solid 2px;
-  margin-bottom: 2em;
-}
-
-.form {
-  overflow: hidden;
-  text-align: left;
-}
-
-.form > textarea {
-  width: 40em;
 }
 
 /* Animations */
