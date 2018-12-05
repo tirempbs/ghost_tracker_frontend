@@ -26,3 +26,27 @@ function loadAllSightings() {
     console.log(`%cLoaded ${sightings.length} sightings`, 'color: green')
   })
 }
+
+function createNewSighting() {
+  const createForm = document.getElementById('create-form')
+  const nEntity = createForm.querySelector('input[name=entity]')
+  const nImage = createForm.querySelector('input[name=image_url]')
+  const nDescription = createForm.querySelector('textarea[name=description]')
+  const nBody = {sighting: {entity: nEntity, image: nImage, description: nDescription}}
+  fetch('http://localhost:3000/api/v1/sightings', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(nBody)
+  })
+  .then(res => res.json())
+  .then(res => {
+    console.log(res)
+    if (res.id) {
+      const nSighting = new Sighting(res)
+      console.log(nSighting)
+    }
+  })
+}

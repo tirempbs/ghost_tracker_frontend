@@ -21,8 +21,3 @@ function toggleInvisible(element) {
     element.classList.add('no-display')
   }
 }
-
-// Delete this later maybe :P
-function getCreateForm() {
-  return document.getElementById('create-form')
-}
