@@ -19,5 +19,6 @@ function loadAllUsers() {
       new User(user)
     })
     console.log(`%cLoaded ${users.length} users`, 'color: orange')
+    createFilterButtons()
   })
 }
