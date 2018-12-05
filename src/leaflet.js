@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     	maxZoom: 16
   }).addTo(nycMap);
 
-  
+
 
 
   //flatiron school marker
@@ -50,11 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   nycMap.on('click', onMapClick);
 
-  //pull all the seed sightings into allSightings array
-  loadAllSightings()
-
   //iterate through allSightings and create and render pins
-
   renderSightings = () => {
     allSightings.forEach( s => {
       let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)]).addTo(nycMap);
@@ -66,7 +62,5 @@ document.addEventListener('DOMContentLoaded', () => {
       `)
     })
   }
-
-  renderSightings()
 
 })
