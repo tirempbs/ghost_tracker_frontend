@@ -3,6 +3,7 @@ const allMarkers = []
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
   //initialize map, set coordinates and zoom
   nycMap = L.map('nyc-map').setView([40.743, -74], 13);
 
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //iterate through allSightings and create and render pins
   renderSightings = () => {
     allSightings.forEach( s => {
-      let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)], {entityId: s.monsterID} ).addTo(nycMap);
+      let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)], {monsterId: s.monsterID} ).addTo(nycMap);
 
       allMarkers.push(newS)
 
@@ -36,7 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  const showAllButton = document.querySelector('#show-all')
+  showAllButton.addEventListener('click', showAll)
+
 })
+
+function createFilterButtons() {
+  const filterButtonDiv = document.querySelector('#filter-buttons')
+
+  allmonsters.forEach((monster) => {
+    const html = filterButtonRenderHTML(monster);
+    filterButtonDiv.innerHTML += html
+  })
+
+  filterButtonDiv.addEventListener('click', monsterFilter)
+}
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -48,22 +63,35 @@ function capitalizeName(string) {
 
 //
 
+function showAll() {
+  deleteMarkers();
+  allMarkers.forEach((marker) => {
+    marker.addTo(nycMap);
+  })
+}
+
 // const filterMonster = document.querySelector('#monster-filter')
 //   filterMonster.addEventListener('click', monsterFilterFn)
 
-  function deleteMarkerFn() {
-      allMarkers.forEach((marker) => {
-        marker.remove();
-      })
-      console.log("DELETED ALL MARKERS");
-    }
-
-  function monsterFilterFn(event) {
-    deleteMarkerFn();
-    filterSet = allMarkers.filter((marker) => {
-    	return marker.options.entityId === 8
+function deleteMarkers() {
+    allMarkers.forEach((marker) => {
+      marker.remove();
     })
-    filterSet.forEach((marker) => {
-      marker.addTo(nycMap);
-    })
+    console.log("DELETED ALL MARKERS");
   }
+
+function monsterFilter(event) {
+  deleteMarkers();
+  filterSet = allMarkers.filter((marker) => {
+  	return marker.options.monsterId === parseInt(event.target.id)
+  })
+  filterSet.forEach((marker) => {
+    marker.addTo(nycMap);
+  })
+}
+
+function filterButtonRenderHTML(monster) {
+  return `
+  <button type="button" name="button" id="${monster.id}">${monster.name}</button>
+  `
+}
