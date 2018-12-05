@@ -42,14 +42,20 @@
           <div style='width: 80%; margin-left: 10%;'>
             <form class="form no-display" id='create-form' data-lat='null' data-long='null'>
               <h3>Report a Sighting</h3> <p id='exit-create' class='exit'>X</p>
-              <label>Monster:</label>
-              <input type="text" name="monster"><br>
               <label>Entity:</label>
               <input type="text" name="entity"><br>
               <label>Description:</label><br>
               <textarea rows='2' columns='30' name="description"></textarea><br><br>
               <label>Upload Image:</label>
               <input type="text" name="image-url"><br>
+              <label>Monster Type:</label>
+              <select name="monster_id"><br>
+                <option value="0">Ghost</option>
+                <option value="1">Undead</option>
+                <option value="2">Giant</option>
+                <option value="3">Demon</option>
+                <option value="4">Mutant</option>
+              </select>
               <p>Coordinates: <span id='create-coords'> </span></p>
               <input type="submit" name="submit-create" value="Submit">
             </form>
@@ -73,8 +79,14 @@
             <textarea rows='2' columns='30' name="description"></textarea><br>
             <label>Image URL:</label>
             <input type="text" name="image-url"><br>
-            <label>Monster:</label>
-            <input type="text" name="monster"><br>
+            <label>Monster Type:</label>
+            <select name="monster_id"><br>
+              <option value="0">Ghost</option>
+              <option value="1">Undead</option>
+              <option value="2">Giant</option>
+              <option value="3">Demon</option>
+              <option value="4">Mutant</option>
+            </select>
             <p>Coordinates:  <span id='edit-coords'> </span></p>
             <input type="submit" name="submit-edit" value="Submit">
           </form>

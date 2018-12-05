@@ -96,18 +96,16 @@ footer {
 /* drop-in */
 @keyframes dropin {
   0% {display: none; height: 0;}
-  50% {display: none; height: 0;}
   100% {display: inline-block; height: 20em;}
 }
-.drop-in {animation: dropin 3s;}
+.drop-in {animation: dropin 1s;}
 
 /* drop-out */
 @keyframes dropout {
   0% {display: inline-block; height: 20em;}
-  50% {display: none; height: 0;}
   100% {display: none; height: 0;}
 }
-.drop-out {animation: dropout 3s;}
+.drop-out {animation: dropout 1s;}
 
 /* no-display */
 .no-display {

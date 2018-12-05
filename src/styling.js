@@ -11,7 +11,7 @@ function dropOut(element) {
   element.classList.add('drop-out')
   setTimeout(() => {
     element.classList.add('no-display')
-  }, 2000)
+  }, 1000)
 }
 
 function toggleInvisible(element) {
