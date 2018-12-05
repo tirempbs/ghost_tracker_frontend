@@ -1,4 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
   loadAllSightings()
-  renderSightings()
+  setTimeout(() => {renderSightings()}, 500)
 })

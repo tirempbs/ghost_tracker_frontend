@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)]).addTo(nycMap);
 
       newS.bindPopup(`
-        <h3>${s.entity}</h3>
+        <h3>${capitalizeName(s.entity)}</h3>
         <img src=${s.image} width=300>
         ${s.description}
       `)
@@ -64,3 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 })
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function capitalizeName(string) {
+  return string.split(' ').map(word => capitalize(word)).join(' ')
+}
