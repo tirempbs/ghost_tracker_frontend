@@ -1,7 +1,9 @@
+let nycMap
+
 document.addEventListener('DOMContentLoaded', () => {
 
   //initialize map, set coordinates and zoom
-  const nycMap = L.map('nyc-map').setView([40.743, -74], 13);
+  nycMap = L.map('nyc-map').setView([40.743, -74], 13);
 
   //add tile layer to map
   // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -47,4 +49,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   nycMap.on('click', onMapClick);
 
-})
+  //FILTER SEARCH - CLEAN UP LATER
+
+  const sightingSearchInput = document.getElementById("sighting-search-input")
+
+  fetchSightings();
+  loadAllSightings();
+
+  sightingSearchInput.addEventListener('input', sightingFilter)
+
+  function sightingFilter(event) {
+    // console.log(event.target.value);
+    const searchTerm = event.target.value
+    const filteredSightings = allSightings.filter((sighting) => {
+      return sighting.entity.includes(searchTerm)
+    }) //returns array of matching sightings
+    console.log(filteredSightings);
+    //iterate over array to add to map
+  } //sightingFilter
+
+}) //DOMContentLoaded
+
+
+
+
+
+//REFERENCE
+
+// let allPokemonData = []
+// // console.log(pokeSearchInput);
+//
+// pokeSearchInput.addEventListener('input', function(event) {
+//   const userSearchTerm = event.target.value //value of target (input field)
+//   const filteredPokemon = allPokemonData.filter(function(pokemonObject) {
+//     return pokemonObject.name.includes(userSearchTerm);
+//   })
+//   const pokeHTML = renderAllPokemon(filteredPokemon);
+//   cardContainer.innerHTML = pokeHTML //refactor
+// })
