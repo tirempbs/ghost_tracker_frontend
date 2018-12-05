@@ -17,7 +17,7 @@ function bindSubmitButtonCreate() {
 
 function bindExitCreate() {
   document.getElementById('exit-create').addEventListener('click', (event) => {
-    dropOut(event.target.parentNode)
+    dropOut(event.target.parentNode.parentNode)
     toggleInvisible(document.getElementById('open-create'))
   })
 }
