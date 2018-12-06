@@ -21,3 +21,19 @@ function toggleInvisible(element) {
     element.classList.add('no-display')
   }
 }
+
+function togglePulseRed(element) {
+  if (element.classList.contains('pulse-red')) {
+    element.classList.remove('pulse-red')
+  } else {
+    element.classList.add('pulse-red')
+  }
+}
+
+function addPulseRed(element) {
+  element.classList.add('pulse-red')
+}
+
+function removePulseRed(element) {
+  element.classList.remove('pulse-red')
+}
