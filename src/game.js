@@ -1,3 +1,5 @@
+let playerCoords
+
 document.addEventListener('DOMContentLoaded', () => {
 
   //modal functions
@@ -75,3 +77,36 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
 }) //DOMContentLoaded
+
+const witchingString = 'suspiria'
+let witchingArray = []
+
+function bindWitchingHour() {
+  document.addEventListener('keyup', (event) => {
+    const keyName = event.key
+    if (witchingString[witchingArray.length] == keyName) {
+      witchingArray.push(keyName)
+      witchingHour()
+    } else {
+      witchingArray = []
+    }
+  })
+}
+
+function witchingHour() {
+  if (witchingArray.length === witchingString.length) {
+    centerLocation(playerCoords)
+    renderInfoSidebar({entity: '', image: 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/the-three-witches-terry-fleckney.jpg', description: 'We see you', id: 666})
+  }
+}
+
+function getLocation() {
+  if (navigator.geolocation) {
+    console.log("mapping coords")
+    navigator.geolocation.getCurrentPosition((position) => {
+      playerCoords = [position.coords.latitude, position.coords.longitude]
+    })
+  }
+}
+
+getLocation()

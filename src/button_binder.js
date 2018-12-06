@@ -65,4 +65,5 @@ function bindAllButtons() {
   bindSubmitButtonCreate()
   bindExitCreate()
   bindExitEdit()
+  bindWitchingHour()
 }

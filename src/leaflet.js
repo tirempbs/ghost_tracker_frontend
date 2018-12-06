@@ -104,6 +104,11 @@ function capitalizeName(string) {
   return string.split(' ').map(word => capitalize(word)).join(' ')
 }
 
+function centerLocation(latlng) {
+  nycMap.setView(new L.LatLng(latlng[0], latlng[1]), 18);
+  // nycMap.panTo(new L.LatLng(latlng[0], latlng[1]))
+}
+
 // ON CLICK FUNCTIONS //
 
 //listener and callback for map click; lat and long can be retreived from this function
