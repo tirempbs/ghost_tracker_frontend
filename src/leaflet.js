@@ -146,23 +146,24 @@ function removeCreateEditPin() {
 
 function renderInfo(event) {
     let selectedSighting
-    const sideBar = document.querySelector('#sighting-info')
-
     selectedSighting = allSightings.find((sighting) => {
       return sighting.id === event.target.options.sightingId
     })
+    renderInfoSidebar(selectedSighting)
+}
 
-    sideBar.innerHTML = renderSidebar(selectedSighting)
-    if (sideBar.classList.contains('no-display')) {
-      dropIn(sideBar)
-    }
-    bindExitShow()
-    dropOut(document.getElementById('create-form'))
-    dropOut(document.getElementById('edit-form'))
-    if (document.getElementById('open-create').classList.contains('no-display')) {
-      toggleInvisible(document.getElementById('open-create'))
-    }
-    // sideBar.innerHTML = "TEST"
+function renderInfoSidebar(selectedSighting) {
+  const sideBar = document.querySelector('#sighting-info')
+  sideBar.innerHTML = renderSidebar(selectedSighting)
+  if (sideBar.classList.contains('no-display')) {
+    dropIn(sideBar)
+  }
+  bindExitShow()
+  dropOut(document.getElementById('create-form'))
+  dropOut(document.getElementById('edit-form'))
+  if (document.getElementById('open-create').classList.contains('no-display')) {
+    toggleInvisible(document.getElementById('open-create'))
+  }
 }
 
 function renderSidebar(sighting) {

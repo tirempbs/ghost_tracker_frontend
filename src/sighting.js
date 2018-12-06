@@ -51,8 +51,14 @@ function createNewSighting() {
       console.log(res)
       if (res.id) {
         const nSighting = new Sighting(res)
-        console.log(nSighting)
-        loadAllSightings().then(() => {deleteMarkers()}).then(() => {renderSightings();resetCreate()})
+        loadAllSightings()
+        .then(() => {
+          deleteMarkers()
+          renderSightings()
+          resetCreate()
+          renderInfoSidebar(res)
+        })
+
       }
     })
   } else {
