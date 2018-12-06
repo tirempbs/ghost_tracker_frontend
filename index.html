@@ -32,7 +32,7 @@
       <p id='open-create' class='pulse-red' style='cursor: pointer;'>Report Sighting</p>
     </header>
 
-    <main class=''>
+    <main>
 
       <div class='view-area'>
         <!-- This is the information display area -->
@@ -63,7 +63,7 @@
 
           <!-- This is the edit form (display: none) -->
           <form class="form no-display drop-in" id='edit-form'>
-            <h3>Edit a Sighting (Possibly remove this h3)</h3>
+            <h3>Edit a Sighting (Possibly remove this h3)<span id='exit-edit' class='exit'>X</span></h3>
             <label>Entity:</label>
             <input type="text" name="entity"><br>
             <label>Description:</label><br>
@@ -89,7 +89,7 @@
           <div id="filter-buttons">
             <!-- iterate and insert filter buttons into innerHTML -->
           </div>
-          <div id="sighting-info">
+          <div id="sighting-info" class="no-display" style="height: 22em; width: 80%; margin-left: 10%; text-align:center;">
             <!-- js function to replace inner HTML -->
           </div>
 
@@ -102,8 +102,12 @@
     </main>
 
     <footer class=''>
-      <div class="footer-box">
+      <div class="footer-box" style='text-align: left'>
         Monster Mapper
+      </div>
+      <div class="footer-box">
+      </div>
+      <div class="footer-box" style='text-align: right'>
       </div>
     </footer>
 

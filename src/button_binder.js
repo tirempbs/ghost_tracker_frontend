@@ -2,6 +2,7 @@ function bindCreateButton() {
   document.getElementById('open-create').addEventListener('click', (event) => {
     toggleInvisible(event.target)
     dropOut(document.getElementById('edit-form'))
+    dropOut(document.getElementById('sighting-info'))
     dropIn(document.getElementById('create-form'))
   })
 }
@@ -30,6 +31,15 @@ function bindExitEdit() {
   })
 }
 
+function bindExitShow() {
+  document.getElementById('exit-show').addEventListener('click', (event) => {
+    dropOut(event.target.parentNode)
+    event.target.classList.add('no-display')
+    const pinBubble = document.querySelector('.leaflet-popup-content-wrapper')
+    if (pinBubble) {pinBubble.parentNode.remove(pinBubble)}
+  })
+}
+
 function resetCreate() {
   document.getElementById('create-coords').innerHTML = ''
   addPulseRed(document.getElementById('create-coords-p'))
@@ -50,4 +60,5 @@ function bindAllButtons() {
   bindCreateButton()
   bindSubmitButtonCreate()
   bindExitCreate()
+  bindExitEdit()
 }

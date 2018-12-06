@@ -110,6 +110,7 @@ function onMapClick(event) {
   //event.latlng.lat = latitude as integer
   //event.latlng.lng = longitude as integer
   getEditCreateCoords(event)
+  clearSightingInfo()
 }
 
 function getEditCreateCoords(event) {
@@ -121,6 +122,14 @@ function getEditCreateCoords(event) {
     document.getElementById('edit-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
     removePulseRed(document.getElementById('edit-coords-p'))
     addCreateEditPin(event)
+  }
+}
+
+function clearSightingInfo() {
+  const sightingInfo = document.getElementById('sighting-info')
+  if (sightingInfo.classList.contains('drop-in')) {
+    toggleInvisible(document.getElementById('exit-show'))
+    dropOut(sightingInfo)
   }
 }
 
@@ -138,18 +147,26 @@ function removeCreateEditPin() {
 function renderInfo(event) {
     let selectedSighting
     const sideBar = document.querySelector('#sighting-info')
-    console.log(event.target.options.sightingId);
 
     selectedSighting = allSightings.find((sighting) => {
       return sighting.id === event.target.options.sightingId
     })
 
     sideBar.innerHTML = renderSidebar(selectedSighting)
+    if (sideBar.classList.contains('no-display')) {
+      dropIn(sideBar)
+    }
+    bindExitShow()
+    dropOut(document.getElementById('create-form'))
+    dropOut(document.getElementById('edit-form'))
+    if (document.getElementById('open-create').classList.contains('no-display')) {
+      toggleInvisible(document.getElementById('open-create'))
+    }
     // sideBar.innerHTML = "TEST"
 }
 
 function renderSidebar(sighting) {
-  return `
+  return `<span id='exit-show' class='exit'>X</span><br>
   <h3>${capitalizeName(sighting.entity)}</h3>
   <img src=${sighting.image} width=300><br>
   ${sighting.description}
