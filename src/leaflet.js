@@ -157,6 +157,11 @@ function renderInfo(event) {
       dropIn(sideBar)
     }
     bindExitShow()
+    dropOut(document.getElementById('create-form'))
+    dropOut(document.getElementById('edit-form'))
+    if (document.getElementById('open-create').classList.contains('no-display')) {
+      toggleInvisible(document.getElementById('open-create'))
+    }
     // sideBar.innerHTML = "TEST"
 }
 
