@@ -78,7 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }) //DOMContentLoaded
 
-const witchingString = 'suspiria'
+const witchingPhrases = ['hocuspocus', 'suspiria', 'boiltoiltrouble']
+
+const witchingString = witchingPhrases[Math.floor(Math.random() * witchingPhrases.length)]
+console.log(witchingString)
 let witchingArray = []
 
 function bindWitchingHour() {
