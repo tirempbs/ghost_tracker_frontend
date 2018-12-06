@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(event.target);
   }
 
+
 }) //DOMContentLoaded
 
 
