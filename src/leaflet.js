@@ -28,26 +28,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   nycMap.on('click', onMapClick);
 
-  //iterate through allSightings and create and render pins
+  //iterate through allSightings and create and render markers
   renderSightings = () => {
     allMarkers = []
     allSightings.forEach( s => {
-      let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)], {monsterId: s.monsterID, sightingId: s.id} ).addTo(nycMap);
+      let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)], {monsterId: s.monsterID, sightingId: s.id} ).addTo(nycMap).on('click', renderInfo);
 
       allMarkers.push(newS)
 
       newS.bindPopup(`
         <h3>${capitalizeName(s.entity)}</h3>
-        <img src=${s.image} width=300>
-        ${s.description}
       `)
     })
-  }
+
+  } //renderSightings
 
   const showAllButton = document.querySelector('#show-all')
   showAllButton.addEventListener('click', showAll)
 
-})
+  function onMarkerClick(event) {
+    console.log(event.target);
+  }
+
+}) //DOMContentLoaded
+
 
 function createFilterButtons() {
   const filterButtonDiv = document.querySelector('#filter-buttons')
@@ -59,7 +63,7 @@ function createFilterButtons() {
 
   filterButtonDiv.addEventListener('click', monsterFilter)
 
-} //DOMContentLoaded
+}
 
 
 function capitalize(string) {
@@ -99,6 +103,29 @@ function monsterFilter(event) {
 function filterButtonRenderHTML(monster) {
   return `
   <button type="button" name="button" id="${monster.id}">${monster.name}</button>`
+}
+
+//
+
+function renderInfo(event) {
+    let selectedSighting
+    const sideBar = document.querySelector('#sighting-info')
+    console.log(event.target.options.sightingId);
+
+    selectedSighting = allSightings.find((sighting) => {
+      return sighting.id === event.target.options.sightingId
+    })
+
+    sideBar.innerHTML = renderSidebar(selectedSighting)
+    // sideBar.innerHTML = "TEST"
+}
+
+function renderSidebar(sighting) {
+  return `
+  <h3>${capitalizeName(sighting.entity)}</h3>
+  <img src=${sighting.image} width=300><br>
+  ${sighting.description}
+  `
 }
 
 //
