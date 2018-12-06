@@ -2,7 +2,8 @@ let playerCoords
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  //modal functions
+  //////////////////////////////////////////////////
+  //MODAL
 
   // Get the modal
   const modal = document.getElementById('myModal');
@@ -34,7 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////
+  //KONG QUEST
 
   //quest - find three markers then monster encounter
   //start a quest prompt
@@ -50,27 +52,83 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const kongClue1 = L.marker([40.757, -73.986], { opacity: 0.0 }).addTo(nycMap);
+  const kongClue2 = L.marker([40.689167, -74.044444], { opacity: 0.0 }).addTo(nycMap);
+  const kongClue3 = L.marker([40.764712, -73.974574], { opacity: 0.0 }).addTo(nycMap);
+  let kong
+  const kongPlanes = L.marker([40.77725, -73.872611], { opacity: 0.0 }).addTo(nycMap);
 
   function kongEvent1() {
     kongClue1.setOpacity(0.3)
-
-    const sideBar = document.querySelector('#sighting-info')
-    sideBar.innerHTML = `YOU FOUND THE FIRST CLUE`
-
     modal.style.display = "block";
-    text.innerHTML = "CLUE 1"
+    text.innerHTML = `KONG has escaped BROADWAY! An attendee saw him escaping toward the bay... find a helicopter and HOVER over where the COPPER STATUE is to search for him!!`
+    kongClue2.addEventListener('mouseover', kongEvent2)
   }
 
-  //secret markers
+  function kongEvent2() {
+    kongClue2.setOpacity(0.3)
+    modal.style.display = "block";
+    text.innerHTML = `KONG swam back to MANHATTAN in search of open space! He was last seen looking for a woman at a FAMOUS HOTEL near the park!`
+    kongClue3.addEventListener('click', kongEvent3)
+  }
+
+  function kongEvent3() {
+    kongClue3.setOpacity(0.3)
+    modal.style.display = "block";
+    text.innerHTML = `KONG has kidnapped a woman and escaped into MIDTOWN! An old man hints that KONG can be found by typing in the answer to the following: "New York is known as the ______ state."`
+    document.addEventListener('keydown', kongEvent4)
+  }
+
+  let index = 0;
+
+  function kongEvent4(event) {
+
+    kong = L.marker([40.748433, -73.985656], { opacity: 0.0 }).addTo(nycMap);
+
+    let selectedSighting = new Sighting({id: 99, entity: "king kong", lat: "40.748433", long: "-73.985656", image: "https://media.giphy.com/media/KRG6XGnCYB0L6/giphy.gif", description: "King of the concrete jungle. Search nearby airports for a way to defeat him!", monster: { id: 3, name: "Giant" } })
+
+    const codes = ["e","m","p","i","r","e"];
+    const key = event.key;
+
+    if (key === codes[index]) {
+      index++;
+      console.log(key);
+
+      if (index === codes.length) {
+        kong.setOpacity(0.3)
+        // .bindPopup(`<strong>You found KONG!</strong>`).openPopup();
+        renderInfoSidebar(selectedSighting)
+        kong.addEventListener('click', (event) => { renderInfoSidebar(selectedSighting) })
+        kongPlanes.addEventListener('click', kongEvent5)
+
+        index = 0;
+      }
+    } else {
+      index = 0;
+    }
+  }
+
+  function kongEvent5() {
+    modal.style.display = "block";
+    text.innerHTML = `<img src="http://images6.fanpop.com/image/photos/36900000/King-Kong-monster-movies-36994534-500-375.gif" /><p>The planes have been scrambled! Direct them to KONG to defeat him!</p>`
+    kong.addEventListener('click', kongEvent6)
+  }
+
+  function kongEvent6() {
+    modal.style.display = "block";
+    text.innerHTML = `<img src="https://media.giphy.com/media/Cf7zUYpjrfPO0/giphy.gif" /><p>Oh no, it wasn't the airplanes. It was beauty killed the beast.</p>`
+    kong.removeEventListener('click', kongEvent6)
+  }
+
+  //SECRET MARKERS
 
   const titanic = L.marker([40.741465, -74.010774], { opacity: 0.0 }).addTo(nycMap);
 
   titanic.addEventListener('click', (event) => {
     titanic.setOpacity(0.3).bindPopup(`<strong>You found a secret!</strong>`).openPopup();
 
-    const sideBar = document.querySelector('#sighting-info')
-    sideBar.innerHTML = `<p>The TITANIC has arrived at last!</p> <img src="https://media.giphy.com/media/zO8ZqJV6inGko/giphy.gif" />`
+    let selectedSighting = new Sighting({id: 100, entity: "titanic", lat: "40.741465", long: "-74.010774", image: "https://media.giphy.com/media/zO8ZqJV6inGko/giphy.gif", description: "Better late than never!", monster: { id: 1, name: "Ghost" } })
 
+    renderInfoSidebar(selectedSighting)
 
     console.log("Hidden Marker Discovered!");
     //OPTIONAL: add to user "secrets found" collection list or array
