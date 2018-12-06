@@ -19,8 +19,6 @@ function bindSubmitButtonCreate() {
 function bindGiphySearchButton() {
   document.getElementById('giphy-search').addEventListener('click', (event) => {
     event.preventDefault()
-    const searchDisplay = document.getElementById('giphy-display')
-    searchDisplay.innerHTML = ''
     const searchInput = document.querySelector('input[name=image-url]').value
     searchGiphy(searchInput)
   })
@@ -75,9 +73,6 @@ function bindAllButtons() {
   bindSubmitButtonCreate()
   bindExitCreate()
   bindExitEdit()
-<<<<<<< HEAD
   bindGiphySearchButton()
-=======
   bindWitchingHour()
->>>>>>> chett-random-stuff
 }
