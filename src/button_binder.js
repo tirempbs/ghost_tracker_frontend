@@ -35,6 +35,8 @@ function bindExitShow() {
   document.getElementById('exit-show').addEventListener('click', (event) => {
     dropOut(event.target.parentNode)
     event.target.classList.add('no-display')
+    const pinBubble = document.querySelector('.leaflet-popup-content-wrapper')
+    if (pinBubble) {pinBubble.parentNode.remove(pinBubble)}
   })
 }
 
