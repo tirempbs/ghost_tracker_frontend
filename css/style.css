@@ -30,6 +30,13 @@ main {
 
 }
 
+div.leaflet-popup-content-wrapper {
+  color: white;
+  background: none;
+  border: solid white 2px;
+  font-family: fantasy;
+}
+
 h1 {
   color: white;
   background: black;
