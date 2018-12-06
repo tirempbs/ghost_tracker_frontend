@@ -36,6 +36,7 @@ function createNewSighting() {
   const nLat = document.getElementById('create-coords').innerHTML.split('<br>')[0]
   const nLong = document.getElementById('create-coords').innerHTML.split('<br>')[1]
   const nMonsterId = createForm.querySelector('select').value
+
   if (nEntity && nImage && nDescription && nLat && nLong && nMonsterId) {
     const nBody = {sighting: {entity: nEntity, image: nImage, description: nDescription, lat: nLat, long: nLong, monster_id: nMonsterId}}
     fetch('http://localhost:3000/api/v1/sightings', {

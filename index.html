@@ -6,6 +6,7 @@
     <!-- Styling -->
     <link rel="stylesheet" href="css/style.css">
     <script src="src/styling.js"></script>
+    <script src="src/giphy.js"></script>
 
     <title>Ghost Tracker</title>
 
@@ -43,10 +44,6 @@
               <h3>Report a Sighting <span id='exit-create' class='exit'>X</span></h3>
               <label>Entity:</label>
               <input type="text" name="entity"><br>
-              <label>Description:</label><br>
-              <textarea name="description"></textarea><br><br>
-              <label>Upload Image:</label>
-              <input type="text" name="image-url"><br>
               <label>Monster Type:</label>
               <select name="monster_id" class='metal-lord'><br>
                 <option value="1">Ghost</option>
@@ -55,7 +52,17 @@
                 <option value="4">Demon</option>
                 <option value="5">Mutant</option>
               </select>
+              <br>
+              <label>Description:</label><br>
+              <textarea name="description"></textarea><br>
               <p id='create-coords-p' class='pulse-red'>Click map to add coordinates:<br><span id='create-coords'> </span></p>
+              <label>Search for an Image:</label>
+              <input type="text" name="image-url">
+              <!-- <br> -->
+              <button name='giphy-search' class='metal-lord'>Search</button>
+              <br>
+              <div name='giphy-display'></div>
+              <br>
               <input type="submit" name="submit-create" value="Create Sighting" class='metal-lord'>
             </form>
           </div>
