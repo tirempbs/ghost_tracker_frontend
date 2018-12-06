@@ -110,6 +110,7 @@ function onMapClick(event) {
   //event.latlng.lat = latitude as integer
   //event.latlng.lng = longitude as integer
   getEditCreateCoords(event)
+  clearSightingInfo()
 }
 
 function getEditCreateCoords(event) {
@@ -121,6 +122,14 @@ function getEditCreateCoords(event) {
     document.getElementById('edit-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
     removePulseRed(document.getElementById('edit-coords-p'))
     addCreateEditPin(event)
+  }
+}
+
+function clearSightingInfo() {
+  const sightingInfo = document.getElementById('sighting-info')
+  if (sightingInfo.classList.contains('drop-in')) {
+    toggleInvisible(document.getElementById('exit-show'))
+    dropOut(sightingInfo)
   }
 }
 
