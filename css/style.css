@@ -93,8 +93,7 @@ footer {
 
 .footer-box {
   width: 32%;
-  text-align: left;
-  padding-left: 1em;
+  float: left;
 }
 
 /* Animations */
