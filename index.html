@@ -5,6 +5,7 @@
 
     <!-- Styling -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
     <script src="src/styling.js"></script>
 
     <title>Ghost Tracker</title>
@@ -22,7 +23,9 @@
     <script src="src/monster.js"></script>
     <script src="src/sighting.js"></script>
     <script src="src/button_binder.js"></script>
+    <script src="src/game.js"></script>
     <script src="src/run.js"></script>
+
 
   </head>
   <!-- Body -->
@@ -90,6 +93,21 @@
           </div>
           <div id="sighting-info">
             <!-- js function to replace inner HTML -->
+          </div>
+          <div>
+              <!-- Trigger/Open The Modal -->
+              <button id="myBtn">Find KONG</button>
+
+              <!-- The Modal -->
+              <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close">close &times;</span>
+                  <p id="modal-text">Some text in the Modal..</p>
+                </div>
+
+              </div>
           </div>
 
         </div>
