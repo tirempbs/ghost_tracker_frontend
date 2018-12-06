@@ -169,6 +169,6 @@ function renderSidebar(sighting) {
   return `<span id='exit-show' class='exit'>X</span><br>
   <h3>${capitalizeName(sighting.entity)}</h3>
   <img src=${sighting.image} width=300><br>
-  ${sighting.description}
+  <p>${sighting.description}</p>
   `
 }
