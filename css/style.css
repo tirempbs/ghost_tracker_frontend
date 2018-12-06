@@ -52,7 +52,7 @@ h1 {
   font-family: DragonForce, serif;
   font-size: 1.2em;
   letter-spacing: 2px;
-  background: white;
+  background: maroon;
   color: black;
   display: inline-block;
   float: right;
@@ -85,7 +85,7 @@ h1 {
 }
 
 .form {
-  overflow: hidden;
+  overflow: scroll;
   height: 22em;
   text-align: left;
 }

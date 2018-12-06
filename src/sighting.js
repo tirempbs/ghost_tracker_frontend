@@ -34,16 +34,13 @@ function searchGiphy(string) {
     .then(json => {
       imgArray = []
       json.data.forEach(img => {
-        imgArray.push(img.images.fixed_width.url)
+        imgArray.push(img.images.original.url)
       })
       console.log(json)
-      console.log(imgArray)
-
-      searchDisplay = document.getElementById('giphy-display')
-
+      const searchDisplay = document.getElementById('giphy-display')
       imgArray.forEach(img => {
         searchDisplay.innerHTML += `
-          <img src=${img}><br>
+          <img src=${img} width=290><br>
         `
       }) 
     })
