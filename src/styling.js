@@ -37,3 +37,7 @@ function addPulseRed(element) {
 function removePulseRed(element) {
   element.classList.remove('pulse-red')
 }
+
+function addSabbathScheme(element) {
+  element.classList.add('sabbath')
+}

@@ -97,6 +97,7 @@ function witchingHour() {
   if (witchingArray.length === witchingString.length) {
     centerLocation(playerCoords)
     renderInfoSidebar({entity: '', image: 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/the-three-witches-terry-fleckney.jpg', description: 'We see you', id: 666})
+    addSabbathScheme(document.querySelector('.information-area'))
   }
 }
 
