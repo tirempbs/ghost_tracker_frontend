@@ -69,3 +69,22 @@ function createNewSighting() {
     },1050)
   }
 }
+
+function deleteSightingFromShow(event) {
+  const sightingId = parseInt(event.target.dataset.id)
+  dropOut(document.getElementById('sighting-info'))
+  document.getElementById('sighting-info').innerHTML = ''
+  fetch(`http://localhost:3000/api/v1/sightings/${sightingId}`, {
+    method: 'DELETE',
+    headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
+  })
+  .then(res => res.json())
+  .then(res => {
+    console.log(res)
+
+    loadAllSightings().then(() => {
+      deleteMarkers()
+      renderSightings()
+    })
+  })
+}

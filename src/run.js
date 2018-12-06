@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   loadAllMonsters()
-  loadAllSightings()
-  setTimeout(() => {renderSightings()}, 500)
+  loadAllSightings().then(() => {renderSightings()})
   bindAllButtons()
 })

@@ -159,6 +159,7 @@ function renderInfoSidebar(selectedSighting) {
     dropIn(sideBar)
   }
   bindExitShow()
+  bindDeleteShow()
   dropOut(document.getElementById('create-form'))
   dropOut(document.getElementById('edit-form'))
   if (document.getElementById('open-create').classList.contains('no-display')) {
@@ -171,5 +172,6 @@ function renderSidebar(sighting) {
   <h3>${capitalizeName(sighting.entity)}</h3>
   <img src=${sighting.image} width=300><br>
   <p>${sighting.description}</p>
+  <p id='remove-sighting' data-id=${sighting.id}>Remove</p>
   `
 }

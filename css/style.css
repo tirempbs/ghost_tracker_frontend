@@ -59,7 +59,8 @@ h1 {
   min-width: 25%;
   height: 100%;
   border: black solid 2px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   position: relative;
   top: 1em;
 }
@@ -70,6 +71,17 @@ h1 {
 
 #sighting-info > p {
   max-width: 300px;
+}
+
+#remove-sighting {
+  color: red;
+  display: inline-block;
+  cursor: pointer;
+  padding: 3px;
+}
+
+#remove-sighting:hover {
+  border: solid red 1px;
 }
 
 .form {
