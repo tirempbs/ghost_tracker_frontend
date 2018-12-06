@@ -73,5 +73,9 @@ function bindAllButtons() {
   bindSubmitButtonCreate()
   bindExitCreate()
   bindExitEdit()
+<<<<<<< HEAD
   bindGiphySearchButton()
+=======
+  bindWitchingHour()
+>>>>>>> chett-random-stuff
 }

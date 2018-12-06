@@ -118,6 +118,15 @@ footer {
   float: left;
 }
 
+#myBtn {
+  opacity: 0;
+  animation: fadeout 2s
+}
+
+#myBtn:hover {
+  animation: fadein 2s
+}
+
 /* Animations */
 /* To add an animation to an element just add the relevant class to its class list */
 
@@ -161,6 +170,42 @@ footer {
   100% {color: white}
 }
 .pulse-red {animation: pulsered 2s infinite;}
+
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 0.5;}
+}
+.fade-in {animation: fadein 2s}
+
+@keyframes fadeout {
+  from {opacity: 0.5;}
+  to {opacity: 0}
+}
+.fade-out {animation: fadeout 2s}
+
+@keyframes sabbath {
+  0% {transform: rotate(1deg)}
+  0.2% {transform: rotate(-2deg)}
+  0.4% {transform: rotate(2deg)}
+  0.6% {transform: rotate(-2deg)}
+  0.8% {transform: rotate(2deg)}
+  1.0% {transform: rotate(-2deg)}
+  1.2% {transform: rotate(2deg)}
+  1.4% {transform: rotate(-2deg)}
+  1.6% {transform: rotate(2deg)}
+  1.8% {transform: rotate(-2deg)}
+  2% {transform: rotate(2deg)}
+  2.2% {transform: rotate(-2deg)}
+  2.4% {transform: rotate(10deg)}
+  50%{transform: rotate(10deg)}
+  52%{transform: rotate(0deg)}
+}
+.sabbath{
+  animation: sabbath 30s;
+  color: white;
+  background: black;
+}
+
 
 /* Fonts */
 /* Metal Lord from 1001 Fonts by Raymond Larabie */
