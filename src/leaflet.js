@@ -147,11 +147,12 @@ function renderInfo(event) {
     if (sideBar.classList.contains('no-display')) {
       dropIn(sideBar)
     }
+    bindExitShow()
     // sideBar.innerHTML = "TEST"
 }
 
 function renderSidebar(sighting) {
-  return `
+  return `<span id='exit-show' class='exit'>X</span><br>
   <h3>${capitalizeName(sighting.entity)}</h3>
   <img src=${sighting.image} width=300><br>
   ${sighting.description}

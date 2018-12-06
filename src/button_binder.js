@@ -31,6 +31,13 @@ function bindExitEdit() {
   })
 }
 
+function bindExitShow() {
+  document.getElementById('exit-show').addEventListener('click', (event) => {
+    dropOut(event.target.parentNode)
+    event.target.classList.add('no-display')
+  })
+}
+
 function resetCreate() {
   document.getElementById('create-coords').innerHTML = ''
   addPulseRed(document.getElementById('create-coords-p'))
@@ -51,4 +58,5 @@ function bindAllButtons() {
   bindCreateButton()
   bindSubmitButtonCreate()
   bindExitCreate()
+  bindExitEdit()
 }
