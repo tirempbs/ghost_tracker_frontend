@@ -8,25 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
   nycMap = L.map('nyc-map').setView([40.743, -74], 13);
 
   //add tile layer to map
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-    	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-    	maxZoom: 16
-  }).addTo(nycMap);
+  // L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+  //   	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+  //   	maxZoom: 16
+  // }).addTo(nycMap);
 
-  //listener and callback for map click; lat and long can be retreived from this function
-  function onMapClick(event) {
-    // console.log("You clicked the map at " + event.latlng);
-    //event.latlng.lat = latitude as integer
-    //event.latlng.lng = longitude as integer
-
-    if (!document.getElementById('create-form').classList.contains('no-display')) {
-      document.getElementById('create-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
-      removePulseRed(document.getElementById('create-coords-p'))
-    } else if (!document.getElementById('edit-form').classList.contains('no-display')) {
-      document.getElementById('edit-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
-      removePulseRed(document.getElementById('edit-coords-p'))
-    }
-  }
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  	subdomains: 'abcd',
+  	maxZoom: 19
+  }).addTo(nycMap)
 
   nycMap.on('click', onMapClick);
 
@@ -61,16 +52,10 @@ function createFilterButtons() {
 
   filterButtonDiv.addEventListener('click', monsterFilter)
 
-} //DOMContentLoaded
+} // End DOMContentLoaded
 
 
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
-function capitalizeName(string) {
-  return string.split(' ').map(word => capitalize(word)).join(' ')
-}
 
 //FILTER FUNCTIONS
 
@@ -103,4 +88,31 @@ function filterButtonRenderHTML(monster) {
   <button type="button" name="button" id="${monster.id}">${monster.name}</button>`
 }
 
-//
+// ON CLICK FUNCTIONS //
+
+//listener and callback for map click; lat and long can be retreived from this function
+function onMapClick(event) {
+  //event.latlng.lat = latitude as integer
+  //event.latlng.lng = longitude as integer
+  getEditCreateCoords(event)
+}
+
+function getEditCreateCoords(event) {
+  if (!document.getElementById('create-form').classList.contains('no-display')) {
+    document.getElementById('create-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
+    removePulseRed(document.getElementById('create-coords-p'))
+  } else if (!document.getElementById('edit-form').classList.contains('no-display')) {
+    document.getElementById('edit-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
+    removePulseRed(document.getElementById('edit-coords-p'))
+  }
+}
+
+// A random function
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function capitalizeName(string) {
+  return string.split(' ').map(word => capitalize(word)).join(' ')
+}

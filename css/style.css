@@ -43,8 +43,8 @@ h1 {
   font-family: DragonForce, serif;
   font-size: 1.2em;
   letter-spacing: 2px;
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   display: inline-block;
   float: right;
   min-width: 25%;
