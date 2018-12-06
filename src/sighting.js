@@ -28,6 +28,28 @@ function loadAllSightings() {
   })
 }
 
+function searchGiphy(string) {
+  fetch(`http://api.giphy.com/v1/gifs/search?q=${string}&api_key=3z8UvhNbY64J20z8qW6UICnAvJQgEZbI&limit=5`)
+    .then(resp => resp.json())
+    .then(json => {
+      imgArray = []
+      json.data.forEach(img => {
+        imgArray.push(img.images.fixed_width.url)
+      })
+      console.log(json)
+      console.log(imgArray)
+
+      searchDisplay = document.getElementById('giphy-display')
+
+      imgArray.forEach(img => {
+        searchDisplay.innerHTML += `
+          <img src=${img}><br>
+        `
+      }) 
+    })
+}
+
+
 function createNewSighting() {
   const createForm = document.getElementById('create-form')
   const nEntity = createForm.querySelector('input[name=entity]').value

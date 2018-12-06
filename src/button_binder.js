@@ -16,6 +16,14 @@ function bindSubmitButtonCreate() {
   })
 }
 
+function bindGiphySearchButton() {
+  document.getElementById('giphy-search').addEventListener('click', (event) => {
+    event.preventDefault()
+    const searchInput = document.querySelector('input[name=image-url]').value
+    searchGiphy(searchInput)
+  })
+}
+
 function bindExitCreate() {
   document.getElementById('exit-create').addEventListener('click', (event) => {
     dropOut(event.target.parentNode.parentNode)
@@ -65,4 +73,5 @@ function bindAllButtons() {
   bindSubmitButtonCreate()
   bindExitCreate()
   bindExitEdit()
+  bindGiphySearchButton()
 }
