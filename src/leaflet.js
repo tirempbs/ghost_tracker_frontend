@@ -1,5 +1,6 @@
 let nycMap
 let allMarkers = []
+let sightingPin
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -101,13 +102,24 @@ function getEditCreateCoords(event) {
   if (!document.getElementById('create-form').classList.contains('no-display')) {
     document.getElementById('create-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
     removePulseRed(document.getElementById('create-coords-p'))
+    addCreateEditPin(event)
   } else if (!document.getElementById('edit-form').classList.contains('no-display')) {
     document.getElementById('edit-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
     removePulseRed(document.getElementById('edit-coords-p'))
+    addCreateEditPin(event)
   }
 }
 
-// A random function
+function addCreateEditPin(event) {
+  removeCreateEditPin()
+  sightingPin = L.marker([parseFloat(event.latlng.lat), parseFloat(event.latlng.lng)]).addTo(nycMap);
+}
+
+function removeCreateEditPin() {
+  if (sightingPin) {sightingPin.remove()}
+}
+
+// A few random functions
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);

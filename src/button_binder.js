@@ -35,6 +35,7 @@ function resetCreate() {
   addPulseRed(document.getElementById('create-coords-p'))
   Array.from(document.querySelectorAll('input[type=text]')).forEach((input) => {input.value = ''})
   Array.from(document.querySelectorAll('textarea')).forEach((input) => {input.value = ''})
+  removeCreateEditPin()
 }
 
 function resetEdit() {
@@ -42,6 +43,7 @@ function resetEdit() {
   addPulseRed(document.getElementById('edit-coords-p'))
   Array.from(document.querySelectorAll('input[type=text]')).forEach((input) => {input.value = ''})
   Array.from(document.querySelectorAll('textarea')).forEach((input) => {input.value = ''})
+  removeCreateEditPin()
 }
 
 function bindAllButtons() {

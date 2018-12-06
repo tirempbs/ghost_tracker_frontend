@@ -52,12 +52,11 @@ function createNewSighting() {
       if (res.id) {
         const nSighting = new Sighting(res)
         console.log(nSighting)
-        loadAllSightings().then(() => {deleteMarkers()}).then(() => {renderSightings()})
+        loadAllSightings().then(() => {deleteMarkers()}).then(() => {renderSightings();resetCreate()})
       }
     })
   } else {
     toggleInvisible(document.getElementById('open-create'))
-    resetCreate()
     setTimeout(() => {
       dropIn(createForm)
       alert('You must fill out all forms!')
