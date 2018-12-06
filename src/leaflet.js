@@ -15,14 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //listener and callback for map click; lat and long can be retreived from this function
   function onMapClick(event) {
-    console.log("You clicked the map at " + event.latlng);
+    // console.log("You clicked the map at " + event.latlng);
     //event.latlng.lat = latitude as integer
     //event.latlng.lng = longitude as integer
 
     if (!document.getElementById('create-form').classList.contains('no-display')) {
       document.getElementById('create-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
+      removePulseRed(document.getElementById('create-coords-p'))
     } else if (!document.getElementById('edit-form').classList.contains('no-display')) {
       document.getElementById('edit-coords').innerHTML = `${event.latlng.lat}<br>${event.latlng.lng}`
+      removePulseRed(document.getElementById('edit-coords-p'))
     }
   }
 

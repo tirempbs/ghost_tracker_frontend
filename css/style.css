@@ -3,13 +3,24 @@ body {
   padding: 0;
   margin: 0;
   text-align: center;
+  font-family: 'MetalLord', cursive;
+}
+
+button {
+  font-family: MetalLord, serif;
+  font-size: 0.7em;
 }
 
 /* Header Body */
 header {
-  text-align: left;
+  text-align: right;
   background: black;
   color: white;
+  height: 1em;
+}
+
+header > p {
+  margin: 0;
 }
 
 /* Main Body */
@@ -24,12 +35,16 @@ h1 {
 .nyc-map {
   position: fixed;
   width: 100%;
-  height: 650px;
+  height: 100%;
   z-index: -1;
 }
 
 .information-area {
-  background: white;
+  font-family: DragonForce, serif;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  background: black;
+  color: white;
   display: inline-block;
   float: right;
   min-width: 25%;
@@ -107,3 +122,26 @@ footer {
 .no-display {
   display: none;
 }
+
+/* pulse-red */
+@keyframes pulsered {
+  0% {color: white}
+  50% {color: red}
+  100% {color: white}
+}
+.pulse-red {animation: pulsered 2s infinite;}
+
+/* Fonts */
+/* Metal Lord from 1001 Fonts by Raymond Larabie */
+@font-face { font-family: MetalLord; src: url('metal_lord.ttf'); }
+.metal-lord {
+  font-family: MetalLord, serif;
+}
+
+/* DragonForcE from 1001 Fonts by Holitter Studios */
+@font-face { font-family: DragonForce; src: url('dragonforce.ttf'); }
+.dragonforce {
+  font-family: DragonForce, serif;
+}
+
+/* Fonts used are free for commercial and personal use under the 1001Fonts Free For Commercial Use License (FFC) found at https://www.1001fonts.com/licenses/ffc.html */

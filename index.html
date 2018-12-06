@@ -27,12 +27,11 @@
   </head>
   <!-- Body -->
   <body>
+    <header>
+      <p id='open-create' class='pulse-red' style='cursor: pointer;'>Report Sighting</p>
+    </header>
 
     <main class=''>
-      <!-- <h1>Ghost Tracker NYC</h1> -->
-      <div style='text-align: right; width: 94%; margin-left: 3%; height: 1.5em;'>
-        <button id='open-create'>Report Sighting</button>
-      </div>
 
       <div class='view-area'>
         <!-- This is the information display area -->
@@ -49,15 +48,15 @@
               <label>Upload Image:</label>
               <input type="text" name="image-url"><br>
               <label>Monster Type:</label>
-              <select name="monster_id"><br>
+              <select name="monster_id" class='metal-lord'><br>
                 <option value="1">Ghost</option>
                 <option value="2">Undead</option>
                 <option value="3">Giant</option>
                 <option value="4">Demon</option>
                 <option value="5">Mutant</option>
               </select>
-              <p>Click map to add coordinates:<br><span id='create-coords'> </span></p>
-              <input type="submit" name="submit-create" value="Submit">
+              <p id='create-coords-p' class='pulse-red'>Click map to add coordinates:<br><span id='create-coords'> </span></p>
+              <input type="submit" name="submit-create" value="Create Sighting" class='metal-lord'>
             </form>
           </div>
           <div id="filter-all">
@@ -77,15 +76,15 @@
             <label>Image URL:</label>
             <input type="text" name="image-url"><br>
             <label>Monster Type:</label>
-            <select name="monster_id"><br>
+            <select name="monster_id" class='metal-lord'><br>
               <option value="1">Ghost</option>
               <option value="2">Undead</option>
               <option value="3">Giant</option>
               <option value="4">Demon</option>
               <option value="5">Mutant</option>
             </select>
-            <p>Click map to add coordinates:<br><span id='edit-coords'></span></p>
-            <input type="submit" name="submit-edit" value="Submit">
+            <p id='edit-coords-p' class='pulse-red'>Click map to add coordinates:<br><span id='edit-coords'></span></p>
+            <input type="submit" name="submit-edit" value="Edit Sighting">
           </form>
 
         </div>
@@ -98,7 +97,7 @@
 
     <footer class=''>
       <div class="footer-box">
-        ©Those three guys
+        Monster Mapper
       </div>
       <div class="footer-box">
       </div>

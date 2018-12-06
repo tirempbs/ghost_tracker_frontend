@@ -57,6 +57,7 @@ function createNewSighting() {
     })
   } else {
     toggleInvisible(document.getElementById('open-create'))
+    resetCreate()
     setTimeout(() => {
       dropIn(createForm)
       alert('You must fill out all forms!')
