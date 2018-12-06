@@ -138,13 +138,15 @@ function removeCreateEditPin() {
 function renderInfo(event) {
     let selectedSighting
     const sideBar = document.querySelector('#sighting-info')
-    console.log(event.target.options.sightingId);
 
     selectedSighting = allSightings.find((sighting) => {
       return sighting.id === event.target.options.sightingId
     })
 
     sideBar.innerHTML = renderSidebar(selectedSighting)
+    if (sideBar.classList.contains('no-display')) {
+      dropIn(sideBar)
+    }
     // sideBar.innerHTML = "TEST"
 }
 

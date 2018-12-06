@@ -17,6 +17,8 @@ header {
   background: black;
   color: white;
   height: 1em;
+  position: relative;
+  top: 0.5em;
 }
 
 header > p {
@@ -32,6 +34,7 @@ h1 {
   color: white;
   background: black;
 }
+
 .nyc-map {
   position: fixed;
   width: 100%;
@@ -50,6 +53,9 @@ h1 {
   min-width: 25%;
   height: 100%;
   border: black solid 2px;
+  overflow: hidden;
+  position: relative;
+  top: 1em;
 }
 
 .form {

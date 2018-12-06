@@ -2,6 +2,7 @@ function bindCreateButton() {
   document.getElementById('open-create').addEventListener('click', (event) => {
     toggleInvisible(event.target)
     dropOut(document.getElementById('edit-form'))
+    dropOut(document.getElementById('sighting-info'))
     dropIn(document.getElementById('create-form'))
   })
 }
