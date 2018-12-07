@@ -39,6 +39,7 @@ function searchGiphy(string) {
       })
       console.log(json)
       const searchDisplay = document.getElementById('giphy-display')
+      searchDisplay.innerHTML = ''
       imgArray.forEach(img => {
         searchDisplay.innerHTML += `
           <img src=${img} width=290><br>

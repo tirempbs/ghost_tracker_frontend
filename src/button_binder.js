@@ -19,8 +19,12 @@ function bindSubmitButtonCreate() {
 function bindGiphySearchButton() {
   document.getElementById('giphy-search').addEventListener('click', (event) => {
     event.preventDefault()
-    const searchInput = document.querySelector('input[name=image-url]').value
+    const searchInput = document.querySelector('input[name=image-search]').value
     searchGiphy(searchInput)
+    document.getElementById('giphy-display').addEventListener('click', (event) => {
+      document.getElementById('giphy-display').innerHTML = ''
+      document.querySelector('input[name=image-url]').value = event.target.src
+    })
   })
 }
 
