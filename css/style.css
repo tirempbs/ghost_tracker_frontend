@@ -52,7 +52,7 @@ h1 {
   font-family: DragonForce, serif;
   font-size: 1.2em;
   letter-spacing: 2px;
-  background: maroon;
+  background-color: maroon;
   color: black;
   display: inline-block;
   float: right;
@@ -63,6 +63,10 @@ h1 {
   overflow-y: scroll;
   position: relative;
   top: 1em;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  background-image: url('../assets/dirty_border.png');
+  background-size: cover;
 }
 
 #sighting-info > h3 {
@@ -74,25 +78,30 @@ h1 {
 }
 
 #confirm-sighting {
+  background: #d1d1d1;
+  border: solid black 2px;
+  border-radius: 2px;
   display: inline-block;
   cursor: pointer;
   padding: 3px;
 }
 
 #confirm-sighting:hover {
-  border: solid black 1px;
+  border: solid black 3px;
   padding: 2px;
 }
 
 #remove-sighting {
-  color: red;
+  background: #d1d1d1;
+  border: solid black 2px;
+  border-radius: 2px;
   display: inline-block;
   cursor: pointer;
   padding: 3px;
 }
 
 #remove-sighting:hover {
-  border: solid red 1px;
+  border: solid black 3px;
   padding: 2px;
 }
 
@@ -131,12 +140,15 @@ footer {
 }
 
 #myBtn {
+  color: red;
+  cursor: pointer;
   opacity: 0;
-  animation: fadeout 2s
+  /* animation: fadeout 2s */
 }
 
 #myBtn:hover {
-  animation: fadein 2s
+  animation: fadein 2s;
+  opacity: 1;
 }
 
 /* Animations */
@@ -144,14 +156,12 @@ footer {
 
 /* fade-in */
 @keyframes fadein {
-    from {opacity: 0;}
     to {opacity: 1;}
 }
 .fade-in {animation: fadein 1s;}
 
 /* fade-out */
 @keyframes fadeout {
-    from {opacity: 1;}
     to {opacity: 0;}
 }
 .fade-out {animation: fadeout 1s;}
