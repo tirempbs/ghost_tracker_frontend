@@ -136,30 +136,17 @@ document.addEventListener('DOMContentLoaded', () => {
     renderInfoSidebar(selectedSighting)
   })
 
-}) //DOMContentLoaded
+  const cerberus = L.marker([40.766762, -74.021587], { opacity: 0.0, monsterId: 0, sightingId: 100, icon: demonRune }).addTo(nycMap);
 
-// Witching Content
+  cerberus.addEventListener('click', (event) => {
+    const demonClass = allMonsters.find(monster => monster.name === "Demon")
+    cerberus.options.monsterId = demonClass.id
+    if (!allMarkers.includes(cerberus)) { allMarkers.push(cerberus) }
+    cerberus.setOpacity(0.3).bindPopup(`<strong>You found a secret!</strong>`).openPopup();
 
-const witchingPhrases = ['hocuspocus', 'suspiria', 'boiltoiltrouble']
+    let selectedSighting = new Sighting({id: 100, entity: "cerberus", lat: "40.766762", long: "-74.021587", image: "https://media0.giphy.com/media/OMmTAr9TeQ2sg/giphy.gif", description: "Demon guardian at the exit of the underworld (is a G O O D B O Y E and enjoys belly rubs)", monster: { id: demonClass.id, name: demonClass.name } })
 
-const witchingString = witchingPhrases[Math.floor(Math.random() * witchingPhrases.length)]
-let witchingArray = []
-
-function bindWitchingHour() {
-  document.addEventListener('keyup', (event) => {
-    const keyName = event.key
-    if (witchingString[witchingArray.length] == keyName) {
-      witchingArray.push(keyName)
-      witchingHour()
-    } else {
-      witchingArray = []
-    }
+    renderInfoSidebar(selectedSighting)
   })
-}
 
-function witchingHour() {
-  if (witchingArray.length === witchingString.length) {
-    renderInfoSidebar({entity: '', image: 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/the-three-witches-terry-fleckney.jpg', description: 'We see you', id: 666})
-    addSabbathScheme(document.querySelector('.information-area'))
-  }
-}
+}) //DOMContentLoaded
