@@ -1,6 +1,8 @@
 let nycMap
 let allMarkers = []
 let sightingPin
+let demonRune
+let redMarker
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -22,11 +24,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   nycMap.on('click', onMapClick);
 
+  //custom leaflet icon
+
+  demonRune = L.icon({
+    iconUrl: 'assets/demon_rune_2.png',
+    // shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [50, 47], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [25, 25], // point of the icon which will correspond to marker's location
+    shadowAnchor: [25, 25],  // the same for the shadow
+    popupAnchor:  [0, -15] // point from which the popup should open relative to the iconAnchor
+  });
+
+  redMarker = L.icon({
+    iconUrl: 'assets/red_marker.png',
+    // shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [25, 41], // size of the icon
+    shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [20, 40], // point of the icon which will correspond to marker's location
+    shadowAnchor: [25, 25],  // the same for the shadow
+    popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+  });
+
   //iterate through allSightings and create and render markers
   renderSightings = () => {
     allMarkers = []
     allSightings.forEach( s => {
-      let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)], {monsterId: s.monsterID, sightingId: s.id} ).addTo(nycMap).on('click', renderInfo);
+      let newS = L.marker([parseFloat(s.lat), parseFloat(s.long)], {monsterId: s.monsterID, sightingId: s.id, icon: demonRune} ).addTo(nycMap).on('click', renderInfo);
 
       allMarkers.push(newS)
 
