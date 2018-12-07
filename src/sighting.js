@@ -120,5 +120,12 @@ function confirmSightingFromShow(event) {
     body: JSON.stringify({confirmations: sightingConfirms})
   })
   .then(res => res.json())
-  .then(res => console.log(res))
+  .then(res => {
+    console.log(res)
+    if (res.id) {
+      const foundSighting = allSightings.find(sighting => sighting.id === res.id)
+      foundSighting.confirmations = res.confirmations
+      event.target.dataset.confirms = res.confirmations
+    }
+  })
 }
