@@ -56,7 +56,7 @@ h1 {
   color: black;
   display: inline-block;
   float: right;
-  min-width: 25%;
+  width: 340px;
   height: 100%;
   border: black solid 2px;
   overflow-x: hidden;
