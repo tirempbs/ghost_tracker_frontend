@@ -159,6 +159,7 @@ function renderInfo(event) {
 }
 
 function renderInfoSidebar(selectedSighting) {
+  removeCreateEditPin()
   const sideBar = document.querySelector('#sighting-info')
   sideBar.innerHTML = renderSidebar(selectedSighting)
   if (sideBar.classList.contains('no-display')) {
