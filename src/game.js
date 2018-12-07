@@ -143,10 +143,6 @@ const witchingPhrases = ['hocuspocus', 'suspiria', 'boiltoiltrouble']
 const witchingString = witchingPhrases[Math.floor(Math.random() * witchingPhrases.length)]
 let witchingArray = []
 
-function magic() {
-  console.log(witchingString)
-}
-
 function bindWitchingHour() {
   document.addEventListener('keyup', (event) => {
     const keyName = event.key
