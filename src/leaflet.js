@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <h3>${capitalizeName(s.entity)}</h3>
       `)
     })
-
   } //renderSightings
 
   const showAllButton = document.querySelector('#show-all')
