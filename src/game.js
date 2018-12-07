@@ -136,6 +136,45 @@ document.addEventListener('DOMContentLoaded', () => {
     renderInfoSidebar(selectedSighting)
   })
 
+  const kraken = L.marker([24.8699, -90.0441], { opacity: 0.0, monsterId: 0, sightingId: 200, icon: demonRune }).addTo(nycMap);
+
+  kraken.addEventListener('click', (event) => {
+    const giantClass = allMonsters.find(monster => monster.name === "Giant")
+    kraken.options.monsterId = giantClass.id
+    if (!allMarkers.includes(kraken)) { allMarkers.push(kraken) }
+    kraken.setOpacity(0.3).bindPopup(`<strong>You found a secret!</strong>`).openPopup();
+
+    let selectedSighting = new Sighting({id: 200, entity: "The Kraken", lat: "24.8699", long: "-90.0441", image: "https://media2.giphy.com/media/GRF4gJYMQmdUI/giphy.gif", description: "The tentacles of a monster, the face of a child", monster: { id: giantClass.id, name: giantClass.name } })
+
+    renderInfoSidebar(selectedSighting)
+  })
+
+  const witch = L.marker([42.5252, -70.8910], { opacity: 0.0, monsterId: 0, sightingId: 200, icon: demonRune }).addTo(nycMap);
+
+  witch.addEventListener('click', (event) => {
+    const monsterClass = allMonsters.find(monster => monster.name === "Undead")
+    witch.options.monsterId = monsterClass.id
+    if (!allMarkers.includes(witch)) { allMarkers.push(witch) }
+    witch.setOpacity(0.3).bindPopup(`<strong>You found a secret!</strong>`).openPopup();
+
+    let selectedSighting = new Sighting({id: 200, entity: "The Salem Witches", lat: "42.5252", long: "-70.8910", image: "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/the-three-witches-terry-fleckney.jpg", description: "I speak my own sins; I cannot judge another...", monster: { id: monsterClass.id, name: monsterClass.name } })
+
+    renderInfoSidebar(selectedSighting)
+  })
+
+  const shoggoth = L.marker([-78.5, -14.6], { opacity: 0.0, monsterId: 0, sightingId: 200, icon: demonRune }).addTo(nycMap);
+
+  shoggoth.addEventListener('click', (event) => {
+    const monsterClass = allMonsters.find(monster => monster.name === "Demon")
+    shoggoth.options.monsterId = monsterClass.id
+    if (!allMarkers.includes(shoggoth)) { allMarkers.push(shoggoth) }
+    shoggoth.setOpacity(0.3).bindPopup(`<strong>You found a secret!</strong>`).openPopup();
+
+    let selectedSighting = new Sighting({id: 99999, entity: "Unknown", lat: "-78.5", long: "-14.6", image: "https://media1.giphy.com/media/2FutFqwF0mudO/giphy.gif?cid=3640f6095c0aa1507168596a597c9fa7", description: "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn", monster: { id: monsterClass.id, name: monsterClass.name } })
+
+    renderInfoSidebar(selectedSighting)
+  })
+
 }) //DOMContentLoaded
 
 // Witching Content
