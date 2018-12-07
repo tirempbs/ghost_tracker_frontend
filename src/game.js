@@ -189,7 +189,3 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
 }) //DOMContentLoaded
-
-// Witching Content
-
-}) //DOMContentLoaded
