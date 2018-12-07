@@ -208,6 +208,6 @@ function renderSidebar(sighting) {
   <p>${sighting.description}</p>
   <p id='confirm-sighting' data-id=${sighting.id} data-confirms=${sighting.confirmations}>${sighting.confirmations} Confirmations</p>
   <p id='remove-sighting' data-id=${sighting.id}>Remove</p><br>
-  <img style='height: 1em;' src='https://www.fileformat.info/info/unicode/char/26e7/inverted_pentagram.png'>
+  <img style='height: 1.5em;' src='assets/inverted_pentagram_2.png'>
   `
 }
