@@ -168,18 +168,31 @@ footer {
 .fade-out {animation: fadeout 1s;}
 
 /* drop-in */
-@keyframes dropin {
+@keyframes dropinShow {
+  0% {display: none; height: 0;}
+  100% {display: inline-block; height: 22em;}
+}
+.drop-in-show {animation: dropinShow 1s;}
+
+@keyframes dropinCreate {
   0% {display: none; height: 0;}
   100% {display: inline-block; height: 28em;}
 }
-.drop-in {animation: dropin 1s;}
+.drop-in-create {animation: dropinCreate 1s;}
 
 /* drop-out */
-@keyframes dropout {
+
+@keyframes dropoutShow {
+  0% {display: inline-block; height: 22em;}
+  100% {display: none; height: 0;}
+}
+.drop-out-show {animation: dropoutShow 1s;}
+
+@keyframes dropoutCreate {
   0% {display: inline-block; height: 28em;}
   100% {display: none; height: 0;}
 }
-.drop-out {animation: dropout 1s;}
+.drop-out-create {animation: dropoutCreate 1s;}
 
 /* no-display */
 .no-display {

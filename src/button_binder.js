@@ -1,9 +1,9 @@
 function bindCreateButton() {
   document.getElementById('open-create').addEventListener('click', (event) => {
     toggleInvisible(event.target)
-    dropOut(document.getElementById('edit-form'))
-    dropOut(document.getElementById('sighting-info'))
-    dropIn(document.getElementById('create-form'))
+    dropOutCreate(document.getElementById('edit-form'))
+    dropOutShow(document.getElementById('sighting-info'))
+    dropInCreate(document.getElementById('create-form'))
   })
 }
 
@@ -11,7 +11,7 @@ function bindSubmitButtonCreate() {
   document.getElementById('create-form').addEventListener('submit', (event) => {
     event.preventDefault()
     createNewSighting()
-    dropOut(event.target)
+    dropOutCreate(event.target)
     toggleInvisible(document.getElementById('open-create'))
   })
 }
@@ -30,7 +30,7 @@ function bindGiphySearchButton() {
 
 function bindExitCreate() {
   document.getElementById('exit-create').addEventListener('click', (event) => {
-    dropOut(event.target.parentNode.parentNode)
+    dropOutCreate(event.target.parentNode.parentNode)
     toggleInvisible(document.getElementById('open-create'))
     resetCreate()
   })
@@ -38,14 +38,14 @@ function bindExitCreate() {
 
 function bindExitEdit() {
   document.getElementById('exit-edit').addEventListener('click', (event) => {
-    dropOut(event.target.parentNode.parentNode)
+    dropOutCreate(event.target.parentNode.parentNode)
     resetEdit()
   })
 }
 
 function bindExitShow() {
   document.getElementById('exit-show').addEventListener('click', (event) => {
-    dropOut(event.target.parentNode)
+    dropOutShow(event.target.parentNode)
     event.target.classList.add('no-display')
     const pinBubble = document.querySelector('.leaflet-popup-content-wrapper')
     if (pinBubble) {pinBubble.parentNode.remove(pinBubble)}

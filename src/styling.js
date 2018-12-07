@@ -1,14 +1,28 @@
 // This file is for functions that affect styling
 
-function dropIn(element) {
-  element.classList.remove('drop-out')
+function dropInCreate(element) {
+  element.classList.remove('drop-out-create')
   element.classList.remove('no-display')
-  element.classList.add('drop-in')
+  element.classList.add('drop-in-create')
 }
 
-function dropOut(element) {
-  element.classList.remove('drop-in')
-  element.classList.add('drop-out')
+function dropInShow(element) {
+  element.classList.remove('drop-out-show')
+  element.classList.remove('no-display')
+  element.classList.add('drop-in-show')
+}
+
+function dropOutCreate(element) {
+  element.classList.remove('drop-in-create')
+  element.classList.add('drop-out-create')
+  setTimeout(() => {
+    element.classList.add('no-display')
+  }, 1000)
+}
+
+function dropOutShow(element) {
+  element.classList.remove('drop-in-show')
+  element.classList.add('drop-out-show')
   setTimeout(() => {
     element.classList.add('no-display')
   }, 1000)

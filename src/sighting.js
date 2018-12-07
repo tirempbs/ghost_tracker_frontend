@@ -86,7 +86,7 @@ function createNewSighting() {
   } else {
     toggleInvisible(document.getElementById('open-create'))
     setTimeout(() => {
-      dropIn(createForm)
+      dropInCreate(createForm)
       alert('You must fill out all forms!')
     },1050)
   }
@@ -94,7 +94,7 @@ function createNewSighting() {
 
 function deleteSightingFromShow(event) {
   const sightingId = parseInt(event.target.dataset.id)
-  dropOut(document.getElementById('sighting-info'))
+  dropOutCreate(document.getElementById('sighting-info'))
   document.getElementById('sighting-info').innerHTML = ''
   fetch(`http://localhost:3000/api/v1/sightings/${sightingId}`, {
     method: 'DELETE',

@@ -158,9 +158,9 @@ function getEditCreateCoords(event) {
 
 function clearSightingInfo() {
   const sightingInfo = document.getElementById('sighting-info')
-  if (sightingInfo.classList.contains('drop-in')) {
+  if (sightingInfo.classList.contains('drop-in-show')) {
     toggleInvisible(document.getElementById('exit-show'))
-    dropOut(sightingInfo)
+    dropOutShow(sightingInfo)
   }
 }
 
@@ -188,13 +188,13 @@ function renderInfoSidebar(selectedSighting) {
   const sideBar = document.querySelector('#sighting-info')
   sideBar.innerHTML = renderSidebar(selectedSighting)
   if (sideBar.classList.contains('no-display')) {
-    dropIn(sideBar)
+    dropInShow(sideBar)
   }
   bindExitShow()
   bindDeleteShow()
   bindConfirmShow()
-  dropOut(document.getElementById('create-form'))
-  dropOut(document.getElementById('edit-form'))
+  dropOutCreate(document.getElementById('create-form'))
+  dropOutCreate(document.getElementById('edit-form'))
   if (document.getElementById('open-create').classList.contains('no-display')) {
     toggleInvisible(document.getElementById('open-create'))
   }
