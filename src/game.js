@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const text = document.getElementById('modal-text');
 
   // When the user clicks the button, open the modal
-  btn.onclick = function() {
+  btn.addEventListener('click', function(event) {
     modal.style.display = "block";
     if (kongDefeated === false) {
       text.innerHTML = "KING KONG is on the loose... search around TIMES SQUARE for clues as to his whereabouts..."
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       text.innerHTML = "KING KONG has already been defeated."
     }
-  }
+  })
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
@@ -137,47 +137,3 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
 }) //DOMContentLoaded
-<<<<<<< HEAD
-
-// Witching Content
-
-const witchingPhrases = ['hocuspocus', 'suspiria', 'boiltoiltrouble']
-
-const witchingString = witchingPhrases[Math.floor(Math.random() * witchingPhrases.length)]
-let witchingArray = []
-
-function magic() {
-  console.log(witchingString)
-}
-
-function bindWitchingHour() {
-  document.addEventListener('keyup', (event) => {
-    const keyName = event.key
-    if (witchingString[witchingArray.length] == keyName) {
-      witchingArray.push(keyName)
-      witchingHour()
-    } else {
-      witchingArray = []
-    }
-  })
-}
-
-function witchingHour() {
-  if (witchingArray.length === witchingString.length) {
-    centerLocation(playerCoords)
-    renderInfoSidebar({entity: '', image: 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/the-three-witches-terry-fleckney.jpg', description: 'We see you', id: 666})
-    addSabbathScheme(document.querySelector('.information-area'))
-  }
-}
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition((position) => {
-      playerCoords = [position.coords.latitude, position.coords.longitude]
-    })
-  }
-}
-
-getLocation()
-=======
->>>>>>> austin-cleanup-features
