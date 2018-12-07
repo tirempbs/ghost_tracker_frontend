@@ -42,11 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
   //////////////////////////////////////////////////
   //KONG QUEST
 
-  const kongClue1 = L.marker([40.757, -73.986], { opacity: 0.0 }).addTo(nycMap);
-  const kongClue2 = L.marker([40.689167, -74.044444], { opacity: 0.0 }).addTo(nycMap);
-  const kongClue3 = L.marker([40.764712, -73.974574], { opacity: 0.0 }).addTo(nycMap);
+  const kongClue1 = L.marker([40.757, -73.986], { opacity: 0.0, icon: redMarker }).addTo(nycMap);
+  const kongClue2 = L.marker([40.689167, -74.044444], { opacity: 0.0, icon: redMarker }).addTo(nycMap);
+  const kongClue3 = L.marker([40.764712, -73.974574], { opacity: 0.0, icon: redMarker }).addTo(nycMap);
   let kong
-  const kongPlanes = L.marker([40.77725, -73.872611], { opacity: 0.0 }).addTo(nycMap);
+  const kongPlanes = L.marker([40.77725, -73.872611], { opacity: 0.0, icon: redMarker }).addTo(nycMap);
 
   function kongEvent1() {
     kongClue1.setOpacity(0.3)
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const giantClass = allMonsters.find(monster => monster.name === "Giant")
 
-        kong = L.marker([40.748433, -73.985656], { opacity: 0.0, monsterId: giantClass.id }).addTo(nycMap);
+        kong = L.marker([40.748433, -73.985656], { opacity: 0.0, monsterId: giantClass.id, icon: demonRune }).addTo(nycMap);
 
         let selectedSighting = new Sighting({id: 99, entity: "king kong", lat: "40.748433", long: "-73.985656", image: "https://media.giphy.com/media/KRG6XGnCYB0L6/giphy.gif", description: "King of the concrete jungle. Search nearby airports for a way to defeat him!", monster: { id: giantClass.id, name: giantClass.name } })
 
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //SECRET MARKERS
 
-  const titanic = L.marker([40.741465, -74.010774], { opacity: 0.0, monsterId: 0, sightingId: 100 }).addTo(nycMap);
+  const titanic = L.marker([40.741465, -74.010774], { opacity: 0.0, monsterId: 0, sightingId: 100, icon: demonRune }).addTo(nycMap);
 
   titanic.addEventListener('click', (event) => {
     const ghostClass = allMonsters.find(monster => monster.name === "Ghost")
