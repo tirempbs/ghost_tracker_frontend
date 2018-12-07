@@ -136,6 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }) //DOMContentLoaded
 
+// Witching Content
+
 const witchingPhrases = ['hocuspocus', 'suspiria', 'boiltoiltrouble']
 
 const witchingString = witchingPhrases[Math.floor(Math.random() * witchingPhrases.length)]
