@@ -189,3 +189,29 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
 }) //DOMContentLoaded
+
+// Witching Content
+
+const witchingPhrases = ['hocuspocus', 'suspiria', 'boiltoiltrouble']
+
+const witchingString = witchingPhrases[Math.floor(Math.random() * witchingPhrases.length)]
+let witchingArray = []
+
+function bindWitchingHour() {
+  document.addEventListener('keyup', (event) => {
+    const keyName = event.key
+    if (witchingString[witchingArray.length] == keyName) {
+      witchingArray.push(keyName)
+      witchingHour()
+    } else {
+      witchingArray = []
+    }
+  })
+}
+
+function witchingHour() {
+  if (witchingArray.length === witchingString.length) {
+    renderInfoSidebar({entity: '', image: 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/the-three-witches-terry-fleckney.jpg', description: 'We see you', id: 666})
+    addSabbathScheme(document.querySelector('.information-area'))
+  }
+}
