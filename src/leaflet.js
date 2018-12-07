@@ -166,6 +166,7 @@ function renderInfoSidebar(selectedSighting) {
   }
   bindExitShow()
   bindDeleteShow()
+  bindConfirmShow()
   dropOut(document.getElementById('create-form'))
   dropOut(document.getElementById('edit-form'))
   if (document.getElementById('open-create').classList.contains('no-display')) {
@@ -174,10 +175,13 @@ function renderInfoSidebar(selectedSighting) {
 }
 
 function renderSidebar(sighting) {
+  if (!sighting.confirmations) {sighting.confirmations = 666}
   return `<span id='exit-show' class='exit'>X</span><br>
   <h3>${capitalizeName(sighting.entity)}</h3>
   <img src=${sighting.image} width=300><br>
   <p>${sighting.description}</p>
-  <p id='remove-sighting' data-id=${sighting.id}>Remove</p>
+  <p id='confirm-sighting' data-id=${sighting.id} data-confirms=${sighting.confirmations}>${sighting.confirmations} Confirmations</p>
+  <p id='remove-sighting' data-id=${sighting.id}>Remove</p><br>
+  <img style='height: 1em;' src='https://www.fileformat.info/info/unicode/char/26e7/inverted_pentagram.png'>
   `
 }

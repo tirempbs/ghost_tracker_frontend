@@ -6,6 +6,7 @@ class Sighting {
     this.long = body.long
     this.image = body.image
     this.description = body.description
+    this.confirmations = body.confirmations
     this.monsterID = body.monster.id
     allSightings.push(this)
   }
@@ -42,7 +43,7 @@ function searchGiphy(string) {
         searchDisplay.innerHTML += `
           <img src=${img} width=290><br>
         `
-      }) 
+      })
     })
 }
 
@@ -107,4 +108,17 @@ function deleteSightingFromShow(event) {
       renderSightings()
     })
   })
+}
+
+function confirmSightingFromShow(event) {
+  const sightingId = parseInt(event.target.dataset.id)
+  const sightingConfirms = parseInt(event.target.dataset.confirms) + 1
+  event.target.innerHTML = `${sightingConfirms} Confirmations`
+  fetch(`http://localhost:3000/api/v1/sightings/${sightingId}`, {
+    method: 'PATCH',
+    headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+    body: JSON.stringify({confirmations: sightingConfirms})
+  })
+  .then(res => res.json())
+  .then(res => console.log(res))
 }

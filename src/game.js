@@ -139,8 +139,11 @@ document.addEventListener('DOMContentLoaded', () => {
 const witchingPhrases = ['hocuspocus', 'suspiria', 'boiltoiltrouble']
 
 const witchingString = witchingPhrases[Math.floor(Math.random() * witchingPhrases.length)]
-console.log(witchingString)
 let witchingArray = []
+
+function magic() {
+  console.log(witchingString)
+}
 
 function bindWitchingHour() {
   document.addEventListener('keyup', (event) => {
@@ -164,7 +167,6 @@ function witchingHour() {
 
 function getLocation() {
   if (navigator.geolocation) {
-    console.log("mapping coords")
     navigator.geolocation.getCurrentPosition((position) => {
       playerCoords = [position.coords.latitude, position.coords.longitude]
     })

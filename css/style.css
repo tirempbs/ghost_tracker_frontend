@@ -73,6 +73,17 @@ h1 {
   max-width: 300px;
 }
 
+#confirm-sighting {
+  display: inline-block;
+  cursor: pointer;
+  padding: 3px;
+}
+
+#confirm-sighting:hover {
+  border: solid black 1px;
+  padding: 2px;
+}
+
 #remove-sighting {
   color: red;
   display: inline-block;
@@ -82,6 +93,7 @@ h1 {
 
 #remove-sighting:hover {
   border: solid red 1px;
+  padding: 2px;
 }
 
 .form {

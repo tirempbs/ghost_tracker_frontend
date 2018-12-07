@@ -52,6 +52,10 @@ function bindDeleteShow() {
   document.getElementById('remove-sighting').addEventListener('click', deleteSightingFromShow)
 }
 
+function bindConfirmShow() {
+  document.getElementById('confirm-sighting').addEventListener('click', confirmSightingFromShow)
+}
+
 function resetCreate() {
   document.getElementById('create-coords').innerHTML = ''
   addPulseRed(document.getElementById('create-coords-p'))
